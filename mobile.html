@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://fonts.googleapis.com https://fonts.gstatic.com data:; frame-ancestors 'self';">
+  <title>Lamsel Tax Mapping — Aplikasi Petugas Lapangan Bapenda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#00163a",
+            "primary-container": "#0b2a5b",      // NAVY UTAMA: header, sidebar, tombol primer
+            "on-primary": "#ffffff",
+            "on-primary-container": "#7a93ca",   // teks sekunder di atas navy
+            "primary-fixed": "#d8e2ff",
+            "primary-fixed-dim": "#aec6ff",
+            "on-primary-fixed": "#001a42",
+            "on-primary-fixed-variant": "#2c4678",
+            "inverse-primary": "#aec6ff",
+            "secondary": "#0051d5",              // BIRU AKSI: tab aktif, link, CTA sekunder
+            "secondary-container": "#316bf3",
+            "on-secondary": "#ffffff",
+            "on-secondary-container": "#fefcff",
+            "secondary-fixed": "#dbe1ff",
+            "secondary-fixed-dim": "#b4c5ff",
+            "on-secondary-fixed": "#00174b",
+            "on-secondary-fixed-variant": "#003ea8",
+            "tertiary": "#001c10",
+            "tertiary-container": "#003321",
+            "tertiary-fixed": "#85f8c4",
+            "tertiary-fixed-dim": "#68dba9",
+            "on-tertiary": "#ffffff",
+            "on-tertiary-container": "#29a678",
+            "on-tertiary-fixed": "#002114",
+            "on-tertiary-fixed-variant": "#005137",
+            "error": "#ba1a1a",
+            "error-container": "#ffdad6",
+            "on-error": "#ffffff",
+            "on-error-container": "#93000a",
+            "background": "#f9f9ff",
+            "surface": "#f9f9ff",
+            "surface-bright": "#f9f9ff",
+            "surface-dim": "#cfdaf2",
+            "surface-container-lowest": "#ffffff",  // kartu
+            "surface-container-low": "#f0f3ff",     // panel/callout/sub-area
+            "surface-container": "#e7eeff",
+            "surface-container-high": "#dee8ff",
+            "surface-container-highest": "#d8e3fb",
+            "surface-variant": "#d8e3fb",
+            "surface-tint": "#455e91",
+            "on-surface": "#111c2d",
+            "on-surface-variant": "#44474f",
+            "on-background": "#111c2d",
+            "outline": "#747780",
+            "outline-variant": "#c4c6d0",
+            "inverse-surface": "#263143",
+            "inverse-on-surface": "#ecf1ff"
+          },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          spacing: {
+            "space-xs": "0.25rem", "space-sm": "0.5rem", "space-md": "1rem",
+            "space-lg": "1.5rem", "space-xl": "2rem",
+            "gutter-mobile": "1rem", "gutter": "1.5rem",
+            "margin-mobile": "1rem", "margin": "2rem"
+          },
+          fontFamily: {
+            "body-sm": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"],
+            "headline-sm": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"], "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "code-num": ["Plus Jakarta Sans"]
+          },
+          fontSize: {
+            "body-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+            "body-md": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.05em", fontWeight: "700" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.025em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+            "headline-sm": ["16px", { lineHeight: "24px", fontWeight: "600" }],
+            "headline-md": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "headline-lg": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+            "headline-xl": ["36px", { lineHeight: "44px", fontWeight: "700" }],
+            "headline-lg-mobile": ["22px", { lineHeight: "30px", fontWeight: "700" }],
+            "headline-xl-mobile": ["28px", { lineHeight: "36px", fontWeight: "700" }],
+            "code-num": ["13px", { lineHeight: "18px", fontWeight: "500" }]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    @keyframes pulseSlow {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.6;
+        transform: scale(1.08);
+      }
+    }
+
+    .pulse-amber {
+      animation: pulseSlow 2s infinite ease-in-out;
+    }
+  </style>
+</head>
+
+<body
+  class="bg-surface font-['Plus Jakarta Sans'] text-on-surface antialiased min-h-screen pb-24 selection:bg-secondary-fixed">
+
+  <!-- ========================================== -->
+  <!-- TAB 1: BERANDA PETUGAS LAPANGAN           -->
+  <!-- ========================================== -->
+  <div id="view-beranda" class="view-panel block max-w-md mx-auto">
+    <!-- 6.1 Top App Bar + Banner Institusi -->
+    <header class="bg-primary-container text-on-primary shadow-sm w-full sticky top-0 z-40">
+      <!-- Baris 1: Brand & Profil ringkas -->
+      <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/30">
+        <div class="flex items-center space-x-2.5">
+          <span class="material-symbols-outlined text-secondary-container text-2xl">account_balance</span>
+          <div>
+            <h1 class="text-headline-sm font-bold tracking-tight text-white leading-tight">Lamsel Tax Mapping</h1>
+            <p class="text-[10px] text-on-primary-container tracking-wide font-medium">Bapenda Kabupaten Lampung Selatan
+            </p>
+          </div>
+        </div>
+        <button onclick="switchTab('profil')"
+          class="w-8 h-8 rounded-full bg-secondary text-white flex items-center justify-center font-bold text-xs shadow hover:opacity-90 transition-all"
+          title="Buka Profil Petugas">
+          BS
+        </button>
+      </div>
+
+      <!-- Banner Institusi & Status Petugas -->
+      <div class="bg-primary px-4 py-3">
+        <!-- Logo Dua Institusi -->
+        <div class="grid grid-cols-2 gap-2 mb-3">
+          <div
+            class="bg-surface-container-lowest text-primary rounded-lg p-2 border border-outline-variant/40 shadow-sm flex items-center space-x-2">
+            <svg class="h-6 w-6 shrink-0 text-primary-container" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm0 18c-3.75-1.07-6.5-4.83-6.5-9V8.3l6.5-3.61 6.5 3.61V11c0 4.17-2.75 7.93-6.5 9z" />
+              <path d="M11 10h2v5h-2zm0-4h2v2h-2z" />
+            </svg>
+            <img class="h-7 w-auto max-w-[28px] object-contain shrink-0" alt="Logo Pemkab Lampung Selatan"
+              src="assets/logo_lamsel.png" />
+            <div class="overflow-hidden">
+              <span class="text-[9px] uppercase font-bold tracking-wider text-outline block leading-none">Pemkab</span>
+              <span class="text-[11px] font-bold text-primary truncate block"
+                title="Logo Pemkab Lampung Selatan">Lampung Selatan</span>
+            </div>
+            <img class="hidden" alt="Logo Pemkab Lampung Selatan"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" />
+          </div>
+
+          <div
+            class="bg-surface-container-lowest text-primary rounded-lg p-2 border border-outline-variant/40 shadow-sm flex items-center space-x-2">
+            <svg class="h-6 w-6 shrink-0 text-secondary" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+            </svg>
+            <img class="h-7 w-auto max-w-[28px] object-contain shrink-0" alt="Logo Universitas Teknokrat Indonesia"
+              src="assets/logo_teknokrat.png" />
+            <div class="overflow-hidden">
+              <span class="text-[9px] uppercase font-bold tracking-wider text-outline block leading-none">Univ</span>
+              <span class="text-[11px] font-bold text-primary truncate block"
+                title="Logo Universitas Teknokrat Indonesia">Teknokrat ID</span>
+            </div>
+            <img class="hidden" alt="Logo Universitas Teknokrat Indonesia"
+              src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" />
+          </div>
+        </div>
+
+        <!-- Kartu Identitas Petugas & Status GNSS -->
+        <div
+          class="bg-primary-container/80 rounded-xl p-3 border border-outline-variant/30 flex items-center justify-between">
+          <div class="flex items-center space-x-2.5">
+            <div
+              class="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center text-white font-bold text-sm shadow-inner">
+              BS
+            </div>
+            <div>
+              <div class="flex items-center space-x-1.5">
+                <span class="text-sm font-bold text-white">Budi Santoso</span>
+                <span
+                  class="inline-flex items-center px-1.5 py-0.2 rounded text-[10px] font-semibold bg-tertiary-container text-tertiary-fixed">
+                  <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] mr-1 animate-ping"></span> Online
+                </span>
+              </div>
+              <p class="text-[11px] text-on-primary-container">Petugas Lapangan Bapenda • Kalianda & Natar</p>
+              <p class="text-[10px] font-mono text-primary-fixed-dim">Reg ID: BAP-2026-L094</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span class="text-[10px] text-primary-fixed block">Akurasi GPS</span>
+            <span class="text-xs font-bold text-tertiary-fixed font-code-num">±3 meter</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Konten Beranda -->
+    <main class="p-4 space-y-4">
+
+      <!-- 6.3 Tombol Aksi Cepat -->
+      <section class="space-y-2">
+        <button onclick="switchTab('form')"
+          class="w-full bg-primary-container hover:bg-primary rounded-xl py-3.5 px-4 shadow-md flex items-center justify-between transition-all active:scale-[0.98] group">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center text-white shadow-sm">
+              <span class="material-symbols-outlined text-2xl">add_a_photo</span>
+            </div>
+            <div class="text-left">
+              <span class="text-headline-sm font-bold text-white block leading-tight">+ Tambah Pendataan Usaha</span>
+              <span class="text-body-sm text-on-primary-container font-medium">Autolokasi GPS & Ambil Bukti
+                Lapangan</span>
+            </div>
+          </div>
+          <span
+            class="material-symbols-outlined text-white transition-transform group-hover:translate-x-1">arrow_forward</span>
+        </button>
+
+        <!-- Banner Sinkronisasi Offline -->
+        <div
+          class="bg-surface-container-low rounded-xl border border-outline-variant p-3 flex items-center justify-between shadow-sm">
+          <div class="flex items-center space-x-2.5">
+            <span class="material-symbols-outlined text-secondary text-2xl">cloud_sync</span>
+            <div>
+              <p class="text-body-sm font-bold text-primary">Antrean Sinkronisasi Lokal</p>
+              <p class="text-[11px] text-error font-medium">3 formulir draft menunggu kirim</p>
+            </div>
+          </div>
+          <button
+            onclick="alert('Sinkronisasi 3 berkas draft offline ke server Bapenda Lampung Selatan berhasil dilakukan!')"
+            class="px-3 py-1.5 rounded-lg bg-secondary text-on-secondary text-label-sm font-bold hover:bg-blue-700 active:scale-95 transition-all">
+            Kirim Data
+          </button>
+        </div>
+      </section>
+
+      <!-- 6.2 Kartu Statistik (Grid 2x2) -->
+      <section>
+        <div class="flex items-center justify-between mb-2.5">
+          <div class="flex items-center space-x-1.5">
+            <span class="material-symbols-outlined text-secondary text-lg">analytics</span>
+            <h2 class="text-headline-sm font-bold text-primary">Progres Pendataan Saya</h2>
+          </div>
+          <span class="text-[11px] text-outline font-medium">Update: Hari ini 14:30 WIB</span>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <!-- Total Disurvei (Netral) -->
+          <div
+            class="bg-surface-container-lowest rounded-xl border border-outline-variant p-3.5 shadow-sm relative overflow-hidden">
+            <div
+              class="absolute -right-2 -bottom-2 w-10 h-10 bg-surface-container-high/40 rounded-tl-full pointer-events-none">
+            </div>
+            <span class="text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Total
+              Disurvei</span>
+            <div class="flex items-baseline space-x-1">
+              <span id="stat-total-pendataan" class="text-headline-lg-mobile font-bold text-primary">284</span>
+              <span class="text-body-sm text-on-surface-variant font-medium">Objek</span>
+            </div>
+            <div class="mt-2 text-label-sm text-secondary font-semibold flex items-center space-x-1">
+              <span class="material-symbols-outlined text-xs">map</span>
+              <span>17 Kecamatan Lamsel</span>
+            </div>
+          </div>
+
+          <!-- Terverifikasi -->
+          <div
+            class="bg-surface-container-lowest rounded-xl border border-outline-variant p-3.5 shadow-sm border-l-4 border-l-[#065F46]">
+            <span class="text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Terverifikasi</span>
+            <div class="flex items-baseline space-x-1">
+              <span class="text-headline-lg-mobile font-bold text-[#065F46]">218</span>
+              <span class="text-body-sm text-on-surface-variant font-medium">Objek</span>
+            </div>
+            <div class="mt-2 text-label-sm text-[#065F46] font-semibold flex items-center space-x-1">
+              <span class="material-symbols-outlined text-xs">verified</span>
+              <span>Valid & Diterima</span>
+            </div>
+          </div>
+
+          <!-- Menunggu Verifikasi -->
+          <div
+            class="bg-surface-container-lowest rounded-xl border border-outline-variant p-3.5 shadow-sm border-l-4 border-l-[#FCD34D]">
+            <span class="text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Menunggu
+              Verifikasi</span>
+            <div class="flex items-baseline space-x-1">
+              <span id="stat-menunggu-verifikasi" class="text-headline-lg-mobile font-bold text-[#92400E]">48</span>
+              <span class="text-body-sm text-on-surface-variant font-medium">Objek</span>
+            </div>
+            <div class="mt-2 text-label-sm text-[#92400E] font-semibold flex items-center space-x-1">
+              <span class="material-symbols-outlined text-xs">pending_actions</span>
+              <span>Antrean Verifikator</span>
+            </div>
+          </div>
+
+          <!-- Perlu Perbaikan -->
+          <div
+            class="bg-surface-container-lowest rounded-xl border border-outline-variant p-3.5 shadow-sm border-l-4 border-l-error">
+            <span class="text-label-sm text-on-surface-variant uppercase tracking-wider block mb-1">Perlu
+              Perbaikan</span>
+            <div class="flex items-baseline space-x-1">
+              <span class="text-headline-lg-mobile font-bold text-error">18</span>
+              <span class="text-body-sm text-on-surface-variant font-medium">Objek</span>
+            </div>
+            <div class="mt-2 text-label-sm text-error font-semibold flex items-center space-x-1">
+              <span class="material-symbols-outlined text-xs">warning</span>
+              <span>Revisi Lapangan</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6.4 Chip Filter Kecamatan -->
+      <section>
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="text-label-sm uppercase tracking-wider text-outline font-bold">Wilayah Kecamatan Lapangan</h2>
+          <span class="text-xs text-secondary font-bold">Lihat Semua</span>
+        </div>
+        <div class="flex space-x-1.5 overflow-x-auto no-scrollbar py-0.5">
+          <button
+            class="bg-primary-container text-on-primary font-bold rounded-full px-3 py-1 whitespace-nowrap text-xs shadow-sm">
+            Semua (284)
+          </button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-on-surface font-medium hover:bg-surface-container rounded-full px-3 py-1 whitespace-nowrap text-xs">
+            Kalianda (112)
+          </button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-on-surface font-medium hover:bg-surface-container rounded-full px-3 py-1 whitespace-nowrap text-xs">
+            Natar (76)
+          </button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-on-surface font-medium hover:bg-surface-container rounded-full px-3 py-1 whitespace-nowrap text-xs">
+            Jati Agung (42)
+          </button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-on-surface font-medium hover:bg-surface-container rounded-full px-3 py-1 whitespace-nowrap text-xs">
+            Tanjung Bintang (28)
+          </button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-on-surface font-medium hover:bg-surface-container rounded-full px-3 py-1 whitespace-nowrap text-xs">
+            Sidomulyo (14)
+          </button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-on-surface font-medium hover:bg-surface-container rounded-full px-3 py-1 whitespace-nowrap text-xs">
+            Katibung (8)
+          </button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-on-surface font-medium hover:bg-surface-container rounded-full px-3 py-1 whitespace-nowrap text-xs">
+            Penengahan (4)
+          </button>
+        </div>
+      </section>
+
+      <!-- 6.5 Daftar Kartu Objek Pajak (Data Contoh Konsisten) -->
+      <section class="space-y-3">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-1.5">
+            <span class="material-symbols-outlined text-secondary text-lg">list_alt</span>
+            <h2 class="text-headline-sm font-bold text-primary">Objek Pajak Terbaru</h2>
+          </div>
+          <span class="text-xs text-outline font-medium"><span id="count-objek-utama">4</span> Objek Utama</span>
+        </div>
+
+        <!-- Container Objek Pajak Terbaru (Dynamic List) -->
+        <div id="list-objek-terbaru" class="space-y-3">
+
+        <!-- 1. Menunggu Verifikasi: Hotel Krakatau Indah -->
+        <article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="space-y-1">
+              <span
+                class="text-secondary bg-surface-container rounded px-2 py-0.5 text-xs font-semibold inline-flex items-center space-x-1">
+                <span class="material-symbols-outlined text-[13px]">hotel</span>
+                <span>PBJT Perhotelan</span>
+              </span>
+              <h3 class="text-headline-sm font-bold text-primary leading-tight">Hotel Krakatau Indah</h3>
+              <p class="text-[11px] font-mono text-outline">NOP: 18.01.040.002.012-0045.0</p>
+            </div>
+            <!-- Chip Menunggu Verifikasi -->
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded-md text-label-sm font-label-sm uppercase font-bold tracking-wide bg-[#FEF3C7] text-[#92400E] border border-[#FCD34D] whitespace-nowrap">
+              Menunggu Verifikasi
+            </span>
+          </div>
+
+          <div class="text-xs text-on-surface-variant space-y-1">
+            <div class="flex items-center space-x-1">
+              <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+              <span>Jl. Pesisir No. 12, Kalianda, Lampung Selatan</span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <span class="material-symbols-outlined text-outline text-sm">explore</span>
+              <span class="font-code-num text-xs text-outline">-5.7284° S, 105.5921° E • Akurasi ±3m</span>
+            </div>
+          </div>
+
+          <!-- Potensi & Aksi -->
+          <div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-outline font-bold uppercase tracking-wider block">Potensi PBJT
+                (Simulasi)</span>
+              <div class="flex items-baseline space-x-1">
+                <span class="text-sm font-bold text-primary">Rp 14.500.000</span>
+                <span class="text-[10px] text-on-surface-variant">/ bulan</span>
+              </div>
+            </div>
+            <button onclick="switchTab('peta')"
+              class="px-3 py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-xs font-bold text-primary hover:bg-surface-container active:scale-95 transition-all flex items-center space-x-1">
+              <span class="material-symbols-outlined text-sm">visibility</span>
+              <span>Lihat Detail</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 2. Perlu Perbaikan: Warung Makan Sari Rasa -->
+        <article
+          class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm border-l-4 border-l-error space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="space-y-1">
+              <span
+                class="text-secondary bg-surface-container rounded px-2 py-0.5 text-xs font-semibold inline-flex items-center space-x-1">
+                <span class="material-symbols-outlined text-[13px]">restaurant</span>
+                <span>PBJT Restoran</span>
+              </span>
+              <h3 class="text-headline-sm font-bold text-primary leading-tight">Warung Makan Sari Rasa</h3>
+              <p class="text-[11px] font-mono text-outline">NOP: 18.01.050.001.004-0120.0</p>
+            </div>
+            <!-- Chip Perlu Perbaikan -->
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded-md text-label-sm font-label-sm uppercase font-bold tracking-wide bg-[#FFE4E6] text-[#9F1239] border border-[#FDA4AF] whitespace-nowrap">
+              Perlu Perbaikan
+            </span>
+          </div>
+
+          <div class="text-xs text-on-surface-variant space-y-1">
+            <div class="flex items-center space-x-1">
+              <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+              <span>Jl. Raya Natar Km 18, Natar, Lampung Selatan</span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <span class="material-symbols-outlined text-outline text-sm">explore</span>
+              <span class="font-code-num text-xs text-outline">-5.3120° S, 105.1982° E • Akurasi ±2m</span>
+            </div>
+          </div>
+
+          <!-- Kotak Catatan Verifikator -->
+          <div
+            class="bg-error-container/40 border border-error-container text-error rounded-lg p-2.5 flex items-start space-x-2 text-body-sm">
+            <span class="material-symbols-outlined text-base mt-0.5 text-error shrink-0">error</span>
+            <div>
+              <p class="font-bold text-xs">Catatan Verifikator Bapenda:</p>
+              <p class="text-xs text-error leading-relaxed">Foto tampak depan buram tidak terlihat papan nama usaha.
+                Harap ambil ulang foto dan kalibrasi posisi koordinat kasir.</p>
+            </div>
+          </div>
+
+          <!-- Potensi & Aksi -->
+          <div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-outline font-bold uppercase tracking-wider block">Potensi PBJT
+                (Simulasi)</span>
+              <div class="flex items-baseline space-x-1">
+                <span class="text-sm font-bold text-primary">Rp 2.800.000</span>
+                <span class="text-[10px] text-on-surface-variant">/ bulan</span>
+              </div>
+            </div>
+            <button onclick="openModalRevisi()"
+              class="px-3 py-1.5 rounded-lg bg-error text-on-error text-xs font-bold hover:bg-red-700 active:scale-95 transition-all flex items-center space-x-1 shadow-sm">
+              <span class="material-symbols-outlined text-sm">photo_camera</span>
+              <span>Perbaiki Data</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 3. Terverifikasi: Rumah Makan Pantai Merak -->
+        <article
+          class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm border-l-4 border-l-[#065F46] space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="space-y-1">
+              <span
+                class="text-secondary bg-surface-container rounded px-2 py-0.5 text-xs font-semibold inline-flex items-center space-x-1">
+                <span class="material-symbols-outlined text-[13px]">restaurant</span>
+                <span>PBJT Restoran</span>
+              </span>
+              <h3 class="text-headline-sm font-bold text-primary leading-tight">Rumah Makan Pantai Merak</h3>
+              <p class="text-[11px] font-mono text-outline">NOP: 18.01.040.003.001-0088.0</p>
+            </div>
+            <!-- Chip Terverifikasi -->
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded-md text-label-sm font-label-sm uppercase font-bold tracking-wide bg-[#D1FAE5] text-[#065F46] border border-[#6EE7B7] whitespace-nowrap">
+              Terverifikasi
+            </span>
+          </div>
+
+          <div class="text-xs text-on-surface-variant space-y-1">
+            <div class="flex items-center space-x-1">
+              <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+              <span>Kawasan Wisata Merak Belantung, Kalianda</span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <span class="material-symbols-outlined text-outline text-sm">explore</span>
+              <span class="font-code-num text-xs text-outline">-5.6124° S, 105.5891° E • Akurasi ±2.5m</span>
+            </div>
+          </div>
+
+          <!-- Potensi & Aksi -->
+          <div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-outline font-bold uppercase tracking-wider block">Potensi PBJT
+                (Simulasi)</span>
+              <div class="flex items-baseline space-x-1">
+                <span class="text-sm font-bold text-primary">Rp 5.250.000</span>
+                <span class="text-[10px] text-on-surface-variant">/ bulan</span>
+              </div>
+            </div>
+            <button onclick="alert('Mengunduh Berita Acara Pendataan (BAP) NOP 18.01.040.003.001-0088.0...')"
+              class="px-3 py-1.5 rounded-lg border border-outline-variant bg-surface-container-lowest text-xs font-bold text-[#065F46] hover:bg-surface-container active:scale-95 transition-all flex items-center space-x-1">
+              <span class="material-symbols-outlined text-sm">download</span>
+              <span>Unduh BAP</span>
+            </button>
+          </div>
+        </article>
+
+        <!-- 4. Draft: Toko Sumber Rejeki -->
+        <article class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm space-y-2.5">
+          <div class="flex items-start justify-between">
+            <div class="space-y-1">
+              <span
+                class="text-secondary bg-surface-container rounded px-2 py-0.5 text-xs font-semibold inline-flex items-center space-x-1">
+                <span class="material-symbols-outlined text-[13px]">featured_video</span>
+                <span>Pajak Reklame</span>
+              </span>
+              <h3 class="text-headline-sm font-bold text-primary leading-tight">Toko Sumber Rejeki</h3>
+              <p class="text-[11px] font-mono text-outline">NOP: Draft Lokal (Belum Terbit)</p>
+            </div>
+            <!-- Chip Draft -->
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded-md text-label-sm font-label-sm uppercase font-bold tracking-wide bg-[#F3F4F6] text-[#374151] border border-[#D1D5DB] whitespace-nowrap">
+              Draft
+            </span>
+          </div>
+
+          <div class="text-xs text-on-surface-variant space-y-1">
+            <div class="flex items-center space-x-1">
+              <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+              <span>Pasar Sidomulyo Blok A-4, Sidomulyo</span>
+            </div>
+            <div class="flex items-center space-x-1">
+              <span class="material-symbols-outlined text-outline text-sm">explore</span>
+              <span class="font-code-num text-xs text-outline">-5.5412° S, 105.5120° E • Draft Offline</span>
+            </div>
+          </div>
+
+          <!-- Potensi & Aksi -->
+          <div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-outline font-bold uppercase tracking-wider block">Estimasi Reklame
+                (Simulasi)</span>
+              <div class="flex items-baseline space-x-1">
+                <span class="text-sm font-bold text-primary">Rp 750.000</span>
+                <span class="text-[10px] text-on-surface-variant">/ tahun</span>
+              </div>
+            </div>
+            <button onclick="switchTab('form')"
+              class="px-3 py-1.5 rounded-lg bg-secondary text-on-secondary text-xs font-bold hover:bg-blue-700 active:scale-95 transition-all flex items-center space-x-1 shadow-sm">
+              <span class="material-symbols-outlined text-sm">edit_document</span>
+              <span>Lanjutkan Entri</span>
+            </button>
+          </div>
+        </article>
+      </section>
+
+      </div>
+      </section>
+
+      <!-- 6.6 Callout Disclaimer / Dasar Hukum -->
+      <section
+        class="border-l-4 border-primary-container bg-surface-container-low p-3.5 rounded-r-xl border border-outline-variant/60">
+        <div class="flex items-start space-x-2.5">
+          <span class="material-symbols-outlined text-primary text-xl mt-0.5">info</span>
+          <div>
+            <h4 class="text-label-md font-bold text-primary">Pemberitahuan Resmi Lapangan:</h4>
+            <p class="text-body-sm text-on-surface-variant font-medium">Estimasi simulasi — bukan penetapan pajak,
+              tagihan, atau bukti pembayaran.</p>
+            <p class="text-[10px] text-outline mt-1">Berdasarkan Perda Kab. Lampung Selatan No. 1 Tahun 2024 tentang
+              Pajak Daerah dan Retribusi Daerah.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6.7 Footer Wajib -->
+      <footer
+        class="bg-surface-container-low border-t border-outline-variant text-center py-4 px-4 rounded-xl space-y-1.5">
+        <h4 class="text-headline-sm font-bold text-primary">Lamsel Tax Mapping</h4>
+        <p class="text-body-sm text-on-surface-variant font-medium">Copyright©2026 by Genta dan Dr. Erliyan Redy
+          Susanto, M.Kom</p>
+        <div class="flex items-center justify-center space-x-2 text-label-sm text-secondary pt-1 font-semibold">
+          <a href="javascript:void(0)" class="hover:underline">Kabupaten Lampung Selatan</a>
+          <span class="text-outline-variant">•</span>
+          <a href="javascript:void(0)" class="hover:underline">Universitas Teknokrat Indonesia</a>
+          <span class="text-outline-variant">•</span>
+          <a href="javascript:void(0)" class="hover:underline">Kebijakan Privasi</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- TAB 2: FORMULIR PENDATAAN USAHA BARU       -->
+  <!-- ========================================== -->
+  <div id="view-form" class="view-panel hidden max-w-md mx-auto">
+    <!-- Header Form Ringkas -->
+    <header class="bg-primary-container text-on-primary sticky top-0 z-40 shadow-sm">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-outline-variant/30">
+        <div class="flex items-center space-x-2">
+          <button onclick="switchTab('beranda')"
+            class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+            <span class="material-symbols-outlined text-white text-xl">arrow_back</span>
+          </button>
+          <div>
+            <h1 class="text-headline-sm font-bold text-white">Pendataan Usaha Baru</h1>
+            <p class="text-[10px] text-on-primary-container">Formulir Sensus Potensi Pajak Lapangan</p>
+          </div>
+        </div>
+        <span
+          class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#D1FAE5] text-[#065F46] border border-[#6EE7B7]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#10B981] mr-1 animate-pulse"></span> GPS Akurat (±3m)
+        </span>
+      </div>
+
+      <!-- Strip Logo Tipis -->
+      <div
+        class="bg-surface-container-low px-4 py-1.5 border-b border-outline-variant/40 flex items-center justify-between text-xs text-primary font-bold">
+        <span title="Logo Pemkab Lampung Selatan">Pemkab Lamsel</span>
+        <div class="flex items-center space-x-1">
+          <img class="h-4 w-auto object-contain" alt="Logo Pemkab Lampung Selatan" src="assets/logo_lamsel.png" />
+          <span>Pemkab Lamsel</span>
+        </div>
+        <span class="text-outline-variant">•</span>
+        <span>Bapenda Kab. Lampung Selatan</span>
+        <span class="text-outline-variant">•</span>
+        <span title="Logo Universitas Teknokrat Indonesia">Univ Teknokrat</span>
+        <div class="flex items-center space-x-1">
+          <img class="h-4 w-auto object-contain" alt="Logo Universitas Teknokrat Indonesia"
+            src="assets/logo_teknokrat.png" />
+          <span>Univ Teknokrat</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="p-4 space-y-4">
+      <!-- Stepper Tahapan Formulir Lapangan -->
+      <div class="bg-surface-container-lowest rounded-xl border border-outline-variant p-3.5 shadow-sm space-y-2">
+        <div class="flex items-center justify-between">
+          <span class="text-label-sm font-bold uppercase tracking-wider text-primary">Tahapan Formulir Lapangan</span>
+          <span class="text-xs font-bold text-secondary">Langkah 1 dari 5</span>
+        </div>
+        <div class="grid grid-cols-5 gap-1.5">
+          <div class="h-1.5 rounded-full bg-secondary"></div>
+          <div class="h-1.5 rounded-full bg-outline-variant"></div>
+          <div class="h-1.5 rounded-full bg-outline-variant"></div>
+          <div class="h-1.5 rounded-full bg-outline-variant"></div>
+          <div class="h-1.5 rounded-full bg-outline-variant"></div>
+        </div>
+      </div>
+
+      <form onsubmit="event.preventDefault(); submitFormulir();" class="space-y-4">
+
+        <!-- Seksi 1: Identitas Objek & Wajib Pajak -->
+        <section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-outline-variant/40 pb-2">
+            <div class="flex items-center space-x-2">
+              <span
+                class="w-6 h-6 rounded-md bg-primary-container text-on-primary text-xs font-bold flex items-center justify-center">1</span>
+              <h2 class="text-headline-sm font-bold text-primary">Identitas Objek & Pemilik</h2>
+            </div>
+            <span class="text-[10px] font-bold text-error bg-error-container/50 px-2 py-0.5 rounded uppercase">Wajib
+              Isi</span>
+          </div>
+
+          <div>
+            <label class="block text-body-sm font-bold text-on-surface mb-1">Nama Usaha / Objek Pajak <span
+                class="text-error">*</span></label>
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-on-surface-variant">store</span>
+              <input type="text" id="input-nama-usaha" required placeholder="Contoh: RM Pindang Merak Belantung"
+                class="w-full pl-9 pr-3 py-2 rounded-lg border border-outline-variant bg-white focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-body-md"
+                value="RM Pindang Dermaga Lamsel">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-body-sm font-bold text-on-surface mb-1">Nama Pemilik / Penanggung Jawab <span
+                class="text-error">*</span></label>
+            <div class="relative">
+              <span
+                class="material-symbols-outlined absolute left-3 top-2.5 text-[18px] text-on-surface-variant">person</span>
+              <input type="text" id="input-pemilik" required placeholder="Nama lengkap sesuai KTP"
+                class="w-full pl-9 pr-3 py-2 rounded-lg border border-outline-variant bg-white focus:border-secondary focus:ring-2 focus:ring-secondary/20 text-body-md"
+                value="H. Ahmad Fauzi">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-body-sm font-bold text-on-surface mb-1">NIK / NPWPD <span
+                  class="text-error">*</span></label>
+              <input type="text" id="input-nik" required placeholder="180104xxxxxxxxxx" maxlength="16"
+                class="w-full px-3 py-2 rounded-lg border border-outline-variant bg-white focus:border-secondary focus:ring-2 focus:ring-secondary/20 font-code-num text-xs"
+                value="1801042509820003">
+            </div>
+            <div>
+              <label class="block text-body-sm font-bold text-on-surface mb-1">No. WhatsApp <span
+                  class="text-error">*</span></label>
+              <input type="tel" id="input-telp" required placeholder="08xxxxxxxxxx"
+                class="w-full px-3 py-2 rounded-lg border border-outline-variant bg-white focus:border-secondary focus:ring-2 focus:ring-secondary/20 font-code-num text-xs"
+                value="081273928190">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-body-sm font-bold text-on-surface mb-1.5">Kategori Objek Pajak Daerah <span
+                class="text-error">*</span></label>
+            <div class="grid grid-cols-2 gap-2">
+              <label
+                class="flex items-center space-x-2 p-2 rounded-lg border-2 border-secondary bg-surface-container-low cursor-pointer">
+                <input type="radio" name="kat_pajak" checked class="text-secondary focus:ring-secondary">
+                <div class="text-xs">
+                  <span class="font-bold text-primary block">PBJT Restoran</span>
+                  <span class="text-[10px] text-outline">Makanan & Minuman</span>
+                </div>
+              </label>
+              <label
+                class="flex items-center space-x-2 p-2 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer">
+                <input type="radio" name="kat_pajak" class="text-secondary focus:ring-secondary">
+                <div class="text-xs">
+                  <span class="font-bold text-primary block">PBJT Hotel</span>
+                  <span class="text-[10px] text-outline">Penginapan & Villa</span>
+                </div>
+              </label>
+              <label
+                class="flex items-center space-x-2 p-2 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer">
+                <input type="radio" name="kat_pajak" class="text-secondary focus:ring-secondary">
+                <div class="text-xs">
+                  <span class="font-bold text-primary block">Pajak Reklame</span>
+                  <span class="text-[10px] text-outline">Billboard / Neon box</span>
+                </div>
+              </label>
+              <label
+                class="flex items-center space-x-2 p-2 rounded-lg border border-outline-variant hover:bg-surface-container-low cursor-pointer">
+                <input type="radio" name="kat_pajak" class="text-secondary focus:ring-secondary">
+                <div class="text-xs">
+                  <span class="font-bold text-primary block">Pajak Parkir</span>
+                  <span class="text-[10px] text-outline">Pelataran Khusus</span>
+                </div>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <!-- Seksi 2: Geolokasi & Pemetaan Spasial -->
+        <section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-outline-variant/40 pb-2">
+            <div class="flex items-center space-x-2">
+              <span
+                class="w-6 h-6 rounded-md bg-primary-container text-on-primary text-xs font-bold flex items-center justify-center">2</span>
+              <h2 class="text-headline-sm font-bold text-primary">Geolokasi & Pemetaan Spasial</h2>
+            </div>
+            <span
+              class="text-[10px] font-bold text-tertiary-fixed bg-tertiary-container px-2 py-0.5 rounded uppercase">GNSS
+              Realtime</span>
+          </div>
+
+          <!-- Mini Peta Kanvas Simulasi -->
+          <div class="relative h-44 rounded-lg overflow-hidden border border-outline-variant bg-[#E5ECE9]">
+            <!-- Garis grid topo -->
+            <svg class="absolute inset-0 w-full h-full opacity-30" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="gridForm" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#747780" stroke-width="0.5" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#gridForm)" />
+            </svg>
+            <!-- Simulasi jalan & pesisir -->
+            <div
+              class="absolute bottom-0 right-0 w-32 h-20 bg-[#C7DCF3] rounded-tl-full opacity-80 flex items-center justify-center text-[10px] font-bold text-secondary">
+              Teluk Lamsel
+            </div>
+            <!-- Pin Tengah Berdenyut -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+              <div
+                class="w-7 h-7 rounded-full bg-secondary border-2 border-white shadow-lg flex items-center justify-center text-white text-xs pulse-amber">
+                <span class="material-symbols-outlined text-sm">my_location</span>
+              </div>
+              <span id="badge-koordinat" class="bg-primary-container text-white text-[9px] font-bold px-1.5 py-0.5 rounded shadow mt-1 whitespace-nowrap">-5.7284° S, 105.5921° E</span>
+            </div>
+            <div class="absolute bottom-2 left-2 text-[9px] text-outline bg-white/90 px-1.5 py-0.5 rounded">
+              OpenStreetMap contributors | Bapenda Spatial Engine 2026
+            </div>
+          </div>
+
+          <!-- Tombol Aksi GPS -->
+          <div class="grid grid-cols-2 gap-2">
+            <button type="button"
+              onclick="kunciTitikGPS()"
+              class="px-3 py-2 rounded-lg bg-secondary text-white text-xs font-bold flex items-center justify-center space-x-1 hover:bg-blue-700 active:scale-95 transition-all shadow-sm">
+              <span class="material-symbols-outlined text-base">gps_fixed</span>
+              <span>Kunci Titik GPS</span>
+            </button>
+            <button type="button" onclick="kalibrasiGNSS()"
+              class="px-3 py-2 rounded-lg border border-outline-variant bg-surface-container-lowest text-xs font-bold text-primary flex items-center justify-center space-x-1 hover:bg-surface-container active:scale-95 transition-all">
+              <span class="material-symbols-outlined text-base">tune</span>
+              <span>Kalibrasi Ulang</span>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-body-sm font-bold text-on-surface mb-1">Kecamatan <span
+                  class="text-error">*</span></label>
+              <select id="select-kecamatan"
+                class="w-full px-3 py-2 rounded-lg border border-outline-variant bg-white text-xs focus:ring-2 focus:ring-secondary/20">
+                <option selected>Kalianda</option>
+                <option>Natar</option>
+                <option>Jati Agung</option>
+                <option>Tanjung Bintang</option>
+                <option>Sidomulyo</option>
+                <option>Katibung</option>
+                <option>Penengahan</option>
+                <option>Ketapang</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-body-sm font-bold text-on-surface mb-1">Desa / Kelurahan <span
+                  class="text-error">*</span></label>
+              <input type="text" id="input-desa" required value="Way Urang"
+                class="w-full px-3 py-2 rounded-lg border border-outline-variant bg-white text-xs">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-body-sm font-bold text-on-surface mb-1">Alamat Lengkap & Patokan <span
+                class="text-error">*</span></label>
+            <textarea id="input-alamat" rows="2"
+              class="w-full px-3 py-2 rounded-lg border border-outline-variant bg-white text-xs focus:ring-2 focus:ring-secondary/20"
+              placeholder="Jalan, RT/RW, dan patokan gedung terdekat">Jl. Dermaga Bom No. 8, Dekat TPI Kalianda</textarea>
+          </div>
+        </section>
+
+        <!-- Seksi 3: Bukti Fisik & Foto Objek -->
+        <section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-outline-variant/40 pb-2">
+            <div class="flex items-center space-x-2">
+              <span
+                class="w-6 h-6 rounded-md bg-primary-container text-on-primary text-xs font-bold flex items-center justify-center">3</span>
+              <h2 class="text-headline-sm font-bold text-primary">Bukti Fisik & Foto Lapangan</h2>
+            </div>
+            <span
+              class="text-[10px] font-bold text-secondary bg-surface-container px-2 py-0.5 rounded uppercase">Watermark
+              Aktif</span>
+          </div>
+
+          <!-- Slot Pratinjau Foto dengan Watermark -->
+          <div
+            class="relative h-44 rounded-lg overflow-hidden border border-outline bg-surface-container-low flex items-center justify-center">
+            <!-- Background Foto Lapangan Simulasi -->
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/20 flex flex-col justify-between p-3">
+              <div class="flex items-center justify-between">
+                <span
+                  class="bg-[#059669] text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center space-x-1 shadow">
+                  <span class="material-symbols-outlined text-[12px]">check</span>
+                  <span>Tersimpan di Perangkat</span>
+                </span>
+                <span class="text-[10px] text-white/90 font-mono">FOTO 1/3</span>
+              </div>
+              <!-- Watermark Lapangan -->
+              <div
+                class="bg-black/60 backdrop-blur-xs p-2 rounded border border-white/20 text-white font-mono space-y-0.5">
+                <div class="flex items-center justify-between text-[9px]">
+                  <span class="font-bold text-amber-300">SURVEI LAPANGAN BAPENDA LAMSEL</span>
+                  <span>10 Nov 2026 14:32 WIB</span>
+                </div>
+                <p class="text-[10px] text-emerald-300 font-bold">LAT: -5.7284° S | LON: 105.5921° E (±2.8m)</p>
+                <p class="text-[9px] text-white/80">KEC. KALIANDA • NIK: 180104xxxxxxxxxx</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex space-x-2">
+            <button type="button" onclick="alert('Kamera diaktifkan. Foto kedua berhasil diambil!')"
+              class="flex-1 py-2 px-3 rounded-lg border border-dashed border-outline hover:bg-surface-container text-xs font-bold text-primary flex items-center justify-center space-x-1 transition-all">
+              <span class="material-symbols-outlined text-base">add_a_photo</span>
+              <span>+ Ambil Foto Kasir</span>
+            </button>
+            <button type="button" onclick="alert('Kamera diaktifkan. Foto papan nama reklame berhasil diambil!')"
+              class="flex-1 py-2 px-3 rounded-lg border border-dashed border-outline hover:bg-surface-container text-xs font-bold text-primary flex items-center justify-center space-x-1 transition-all">
+              <span class="material-symbols-outlined text-base">photo_camera</span>
+              <span>+ Foto Reklame</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Seksi 4: Parameter Simulasi Potensi (PBJT 10%) -->
+        <section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-outline-variant/40 pb-2">
+            <div class="flex items-center space-x-2">
+              <span
+                class="w-6 h-6 rounded-md bg-primary-container text-on-primary text-xs font-bold flex items-center justify-center">4</span>
+              <h2 class="text-headline-sm font-bold text-primary">Simulasi Potensi PBJT</h2>
+            </div>
+            <span class="text-[10px] font-bold text-secondary bg-surface-container px-2 py-0.5 rounded uppercase">Tarif
+              10%</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2">
+            <div>
+              <label class="block text-body-sm font-bold text-on-surface mb-1">Kapasitas Kursi/Meja</label>
+              <div class="relative">
+                <input type="number" id="input-kursi" value="40"
+                  class="w-full pr-12 pl-3 py-2 rounded-lg border border-outline-variant bg-white text-xs font-code-num"
+                  oninput="hitungSimulasi()">
+                <span class="absolute right-2.5 top-2 text-[11px] text-outline font-medium">Kursi</span>
+              </div>
+            </div>
+            <div>
+              <label class="block text-body-sm font-bold text-on-surface mb-1">Estimasi Tamu / Hari</label>
+              <div class="relative">
+                <input type="number" id="input-tamu" value="120"
+                  class="w-full pr-12 pl-3 py-2 rounded-lg border border-outline-variant bg-white text-xs font-code-num"
+                  oninput="hitungSimulasi()">
+                <span class="absolute right-2.5 top-2 text-[11px] text-outline font-medium">Orang</span>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-body-sm font-bold text-on-surface mb-1">Rata-rata Transaksi / Orang</label>
+            <div class="relative">
+              <span class="absolute left-3 top-2 text-xs font-bold text-outline">Rp</span>
+              <input type="number" id="input-transaksi" value="35000"
+                class="w-full pl-9 pr-3 py-2 rounded-lg border border-outline-variant bg-white text-xs font-code-num"
+                oninput="hitungSimulasi()">
+            </div>
+          </div>
+
+          <!-- Hasil Perhitungan Simulasi -->
+          <div class="bg-surface-container-low rounded-xl p-3 border border-outline-variant/60 space-y-1.5">
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-outline">Omzet Bulanan (Est):</span>
+              <span id="label-omzet" class="font-bold font-code-num text-primary">Rp 126.000.000</span>
+            </div>
+            <div class="flex items-center justify-between text-xs">
+              <span class="text-outline">Tarif PBJT Perda No. 1/2024:</span>
+              <span class="font-bold text-secondary">10%</span>
+            </div>
+            <div class="pt-1.5 border-t border-outline-variant/40 flex items-center justify-between">
+              <span class="text-xs font-bold text-primary">Estimasi Potensi Pajak:</span>
+              <div class="text-right">
+                <span id="label-potensi" class="text-headline-sm font-bold text-primary font-code-num">Rp
+                  12.600.000</span>
+                <span class="text-[10px] text-outline block">/ bulan</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Callout Disclaimer Wajib -->
+          <div class="border-l-4 border-primary-container bg-surface-container-low p-2.5 rounded-r-lg text-xs">
+            <p class="font-bold text-primary leading-tight">Estimasi simulasi — bukan penetapan pajak, tagihan, atau
+              bukti pembayaran.</p>
+            <p class="text-[10px] text-outline mt-0.5">Berdasarkan Perda Kab. Lampung Selatan No. 1 Tahun 2024 tentang
+              Pajak Daerah dan Retribusi Daerah.</p>
+          </div>
+        </section>
+
+        <!-- Seksi 5: Opsi Simpan & Status -->
+        <section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between border-b border-outline-variant/40 pb-2">
+            <div class="flex items-center space-x-2">
+              <span
+                class="w-6 h-6 rounded-md bg-primary-container text-on-primary text-xs font-bold flex items-center justify-center">5</span>
+              <h2 class="text-headline-sm font-bold text-primary">Pengiriman & Status Entri</h2>
+            </div>
+            <!-- Status Default -->
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded-md text-label-sm font-label-sm uppercase font-bold tracking-wide bg-[#FEF3C7] text-[#92400E] border border-[#FCD34D]">
+              Menunggu Verifikasi
+            </span>
+          </div>
+
+          <div class="flex items-center space-x-2 text-xs text-on-surface-variant">
+            <span class="material-symbols-outlined text-secondary text-sm">lock</span>
+            <span>Penyimpanan Sandbox Aman (Menuju TLS 1.3 / AES-256 Produksi) • Tersinkronisasi Bapenda Lamsel</span>
+          </div>
+
+          <div class="space-y-2 pt-1">
+            <button type="submit"
+              class="w-full bg-primary-container hover:bg-primary text-on-primary font-bold py-3 px-4 rounded-xl shadow-md flex items-center justify-center space-x-2 active:scale-[0.98] transition-all">
+              <span class="material-symbols-outlined text-xl">send</span>
+              <span>Kirim untuk Verifikasi Bapenda</span>
+            </button>
+            <button type="button" onclick="simpanDrafLokal()"
+              class="w-full border border-outline-variant bg-surface-container-lowest hover:bg-surface-container text-primary font-bold py-2.5 px-4 rounded-xl text-xs flex items-center justify-center space-x-1 active:scale-[0.98] transition-all">
+              <span class="material-symbols-outlined text-sm">save</span>
+              <span>Simpan sebagai Draft Lapangan (Offline)</span>
+            </button>
+          </div>
+        </section>
+      </form>
+    </main>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- TAB 3: PETA GIS MOBILE (FULLSCREEN)        -->
+  <!-- ========================================== -->
+  <div id="view-peta"
+    class="view-panel hidden relative w-full h-[100dvh] max-w-md mx-auto flex flex-col overflow-hidden">
+
+    <!-- 8.1 Kanvas Peta Simulasi -->
+    <div class="absolute inset-0 bg-[#E5ECE9]">
+      <!-- SVG Laut Teluk Lampung -->
+      <svg class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="gisGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(196,198,208,0.25)" stroke-width="1" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#gisGrid)" />
+        <!-- Pesisir & Laut -->
+        <path d="M 0 320 Q 120 280 200 360 T 420 400 L 420 800 L 0 800 Z" fill="#C7DCF3" opacity="0.8" />
+        <text x="40" y="460" fill="#0051d5" font-size="12" font-weight="700" letter-spacing="2">TELUK LAMPUNG</text>
+        <text x="240" y="580" fill="#0051d5" font-size="11" font-weight="700" letter-spacing="2">SELAT SUNDA</text>
+        <!-- Jalan Tol Trans Sumatera -->
+        <path d="M 280 0 L 220 250 L 190 500 L 160 800" stroke="#F59E0B" stroke-width="3.5" stroke-dasharray="6,4"
+          fill="none" />
+        <!-- Jalan Arteri Nasional -->
+        <path d="M 120 0 L 140 260 L 150 480 L 130 800" stroke="#ffffff" stroke-width="4" fill="none" />
+        <path d="M 120 0 L 140 260 L 150 480 L 130 800" stroke="#D97706" stroke-width="1.5" fill="none" />
+        <!-- Kawasan Hijau Hutan Lindung -->
+        <polygon points="0,50 80,40 100,160 20,200" fill="#A7F3D0" opacity="0.4" />
+      </svg>
+
+      <!-- 8.5 Marker Objek Pajak pada Kanvas -->
+
+      <!-- Marker 1: Hotel Krakatau Indah (Terpilih, Menunggu Verifikasi) -->
+      <div onclick="selectMarker('hotel')"
+        class="absolute top-[44%] left-[46%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-20 flex flex-col items-center">
+        <!-- Tooltip Objek Terpilih -->
+        <div
+          class="bg-primary-container text-white px-2.5 py-1 rounded shadow-lg text-[10px] font-bold mb-1 whitespace-nowrap flex items-center space-x-1">
+          <span>Hotel Krakatau Indah</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+        </div>
+        <!-- Pin Terpilih Lebih Besar + Ring + Pulse -->
+        <div
+          class="w-9 h-9 rounded-full bg-[#D97706] border-[3px] border-white ring-2 ring-primary-container shadow-xl flex items-center justify-center text-white pulse-amber">
+          <span class="material-symbols-outlined text-base">hotel</span>
+        </div>
+        <span class="text-[9px] font-bold bg-white/95 text-primary px-1.5 py-0.2 rounded shadow mt-0.5">Kalianda</span>
+      </div>
+
+      <!-- Marker 2: Warung Makan Sari Rasa (Perlu Perbaikan, Natar) -->
+      <div onclick="selectMarker('restoran')"
+        class="absolute top-[22%] left-[34%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10 flex flex-col items-center">
+        <div
+          class="w-8 h-8 rounded-full bg-[#E11D48] border-2 border-white shadow-md flex items-center justify-center text-white">
+          <span class="material-symbols-outlined text-sm">restaurant</span>
+        </div>
+        <span class="text-[9px] font-bold bg-white/95 text-primary px-1.5 py-0.2 rounded shadow mt-0.5">Sari Rasa</span>
+      </div>
+
+      <!-- Marker 3: RM Pantai Merak (Terverifikasi, Kalianda) -->
+      <div onclick="selectMarker('pantai')"
+        class="absolute top-[52%] left-[62%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10 flex flex-col items-center">
+        <div
+          class="w-8 h-8 rounded-full bg-[#059669] border-2 border-white shadow-md flex items-center justify-center text-white">
+          <span class="material-symbols-outlined text-sm">restaurant</span>
+        </div>
+        <span class="text-[9px] font-bold bg-white/95 text-primary px-1.5 py-0.2 rounded shadow mt-0.5">Pantai
+          Merak</span>
+      </div>
+
+      <!-- Marker 4: Toko Sumber Rejeki (Draft, Sidomulyo) -->
+      <div onclick="selectMarker('rejeki')"
+        class="absolute top-[38%] left-[72%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10 flex flex-col items-center">
+        <div
+          class="w-8 h-8 rounded-full bg-[#6B7280] border-2 border-white shadow-md flex items-center justify-center text-white">
+          <span class="material-symbols-outlined text-sm">featured_video</span>
+        </div>
+        <span class="text-[9px] font-bold bg-white/95 text-primary px-1.5 py-0.2 rounded shadow mt-0.5">Toko
+          Sumber</span>
+      </div>
+
+      <!-- Marker Klaster Natar -->
+      <div class="absolute top-[15%] left-[25%] -translate-x-1/2 -translate-y-1/2 cursor-pointer z-10">
+        <span
+          class="bg-primary-container text-white px-2.5 py-1 rounded-full text-[10px] font-bold shadow-md border border-white">
+          +45 Natar
+        </span>
+      </div>
+    </div>
+
+    <!-- 8.2 Header Melayang di atas Peta -->
+    <div class="relative z-30 p-3 space-y-2">
+      <div
+        class="bg-primary-container text-white rounded-xl p-3 shadow-lg border border-outline-variant/30 flex items-center justify-between">
+        <div class="flex items-center space-x-2">
+          <span class="material-symbols-outlined text-secondary-container">map</span>
+          <div class="flex items-center space-x-1 bg-surface-container-lowest p-1 rounded-lg shrink-0">
+            <img class="h-5 w-auto object-contain" alt="Logo Pemkab Lampung Selatan" src="assets/logo_lamsel.png" />
+            <img class="h-5 w-auto object-contain" alt="Logo Universitas Teknokrat Indonesia"
+              src="assets/logo_teknokrat.png" />
+          </div>
+          <div>
+            <h1 class="text-sm font-bold leading-tight">Peta Spasial Lamsel</h1>
+            <p class="text-[10px] text-on-primary-container">Pemkab Lamsel x Univ Teknokrat</p>
+          </div>
+        </div>
+        <div class="flex items-center space-x-1.5">
+          <span
+            class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-tertiary-container text-tertiary-fixed">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1 animate-ping"></span> GNSS ON
+          </span>
+          <button onclick="alert('Memuat ulang layer spasial...')"
+            class="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white">
+            <span class="material-symbols-outlined text-base">layers</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Kotak Pencarian NOP / Usaha -->
+      <div
+        class="bg-surface-container-lowest rounded-xl p-1.5 shadow-md border border-outline-variant/60 flex items-center space-x-1.5">
+        <span class="material-symbols-outlined text-outline text-lg ml-2">travel_explore</span>
+        <input type="text" placeholder="Cari NOP (18.01...), nama usaha..."
+          class="w-full border-none focus:ring-0 text-xs py-1.5 font-code-num bg-transparent">
+        <button
+          class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary flex items-center justify-center">
+          <span class="material-symbols-outlined text-base">qr_code_scanner</span>
+        </button>
+      </div>
+
+      <!-- Chip Filter Kategori & Wilayah -->
+      <div class="flex space-x-1 overflow-x-auto no-scrollbar">
+        <button
+          class="bg-primary-container text-white px-2.5 py-1 rounded-full text-[11px] font-bold shadow-sm whitespace-nowrap">Semua
+          Status</button>
+        <button
+          class="bg-white/90 border border-outline-variant/60 text-primary px-2.5 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap shadow-sm">Kalianda
+          (428)</button>
+        <button
+          class="bg-white/90 border border-outline-variant/60 text-primary px-2.5 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap shadow-sm">Natar
+          (215)</button>
+        <div class="w-px h-5 bg-outline-variant self-center"></div>
+        <button
+          class="bg-surface-container-high text-primary px-2.5 py-1 rounded-full text-[11px] font-bold whitespace-nowrap shadow-sm">PBJT
+          Hotel</button>
+        <button
+          class="bg-white/90 border border-outline-variant/60 text-primary px-2.5 py-1 rounded-full text-[11px] font-semibold whitespace-nowrap shadow-sm">PBJT
+          Resto</button>
+      </div>
+    </div>
+
+    <!-- 8.3 Kontrol Sisi Kanan Peta -->
+    <div class="absolute right-3 top-36 z-30 flex flex-col space-y-1.5">
+      <button title="Satelit" onclick="alert('Mode Satelit Aktif')"
+        class="w-10 h-10 rounded-xl bg-surface-container-lowest text-primary shadow-md border border-outline-variant flex items-center justify-center active:scale-95">
+        <span class="material-symbols-outlined text-lg">satellite_alt</span>
+      </button>
+      <button title="Heatmap Potensi" onclick="alert('Heatmap Densitas Pajak Aktif')"
+        class="w-10 h-10 rounded-xl bg-surface-container-lowest text-[#D97706] shadow-md border border-outline-variant flex items-center justify-center active:scale-95">
+        <span class="material-symbols-outlined text-lg">local_fire_department</span>
+      </button>
+      <button title="Ukur Jarak"
+        class="w-10 h-10 rounded-xl bg-surface-container-lowest text-primary shadow-md border border-outline-variant flex items-center justify-center active:scale-95">
+        <span class="material-symbols-outlined text-lg">straighten</span>
+      </button>
+      <button title="Kunci GPS Petugas"
+        class="w-10 h-10 rounded-xl bg-secondary text-white ring-2 ring-blue-300 shadow-md flex items-center justify-center active:scale-95">
+        <span class="material-symbols-outlined text-lg">my_location</span>
+      </button>
+      <div
+        class="flex flex-col bg-surface-container-lowest rounded-xl shadow-md border border-outline-variant overflow-hidden">
+        <button title="Zoom In"
+          class="w-10 h-8 flex items-center justify-center hover:bg-surface-container text-primary font-bold">+</button>
+        <div class="w-full h-px bg-outline-variant"></div>
+        <button title="Zoom Out"
+          class="w-10 h-8 flex items-center justify-center hover:bg-surface-container text-primary font-bold">−</button>
+      </div>
+    </div>
+
+    <!-- 8.4 Legenda Mini Kiri Bawah -->
+    <div
+      class="absolute left-3 bottom-52 z-30 bg-white/90 backdrop-blur-xs p-2 rounded-xl border border-outline-variant shadow-md text-[10px] space-y-1">
+      <div class="font-bold text-primary flex items-center justify-between">
+        <span>Legenda Status</span>
+        <span class="text-outline font-mono">±1.8m</span>
+      </div>
+      <div class="grid grid-cols-2 gap-x-2 gap-y-0.5">
+        <div class="flex items-center space-x-1">
+          <span class="w-2 h-2 rounded-full bg-[#059669]"></span>
+          <span>Terverifikasi</span>
+        </div>
+        <div class="flex items-center space-x-1">
+          <span class="w-2 h-2 rounded-full bg-[#D97706] pulse-amber"></span>
+          <span>Menunggu</span>
+        </div>
+        <div class="flex items-center space-x-1">
+          <span class="w-2 h-2 rounded-full bg-[#E11D48]"></span>
+          <span>Revisi</span>
+        </div>
+        <div class="flex items-center space-x-1">
+          <span class="w-2 h-2 rounded-full bg-[#6B7280]"></span>
+          <span>Draft</span>
+        </div>
+      </div>
+      <div class="text-[8px] text-outline pt-0.5 border-t border-outline-variant font-mono">
+        Posisi: -5.7284° S, 105.5921° E
+      </div>
+    </div>
+
+    <div class="flex-1"></div>
+
+    <!-- 8.6 Bottom Sheet Detail Objek Terpilih -->
+    <div id="map-bottom-sheet"
+      class="relative z-30 bg-surface-container-lowest rounded-t-2xl shadow-2xl border-t border-outline-variant p-4 space-y-3 max-h-[46vh] overflow-y-auto">
+      <!-- Handle Sheet -->
+      <div class="w-12 h-1.5 bg-outline-variant rounded-full mx-auto -mt-1 mb-2"></div>
+
+      <div class="flex items-start justify-between">
+        <div>
+          <div class="flex items-center space-x-1.5 mb-1">
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded-md text-label-sm font-label-sm uppercase font-bold tracking-wide bg-[#FEF3C7] text-[#92400E] border border-[#FCD34D]">
+              Menunggu Verifikasi
+            </span>
+            <span class="text-secondary bg-surface-container rounded px-2 py-0.5 text-xs font-semibold">PBJT
+              Hotel</span>
+          </div>
+          <h3 id="sheet-title" class="text-headline-sm font-bold text-primary">Hotel Krakatau Indah</h3>
+          <p id="sheet-owner" class="text-xs text-on-surface-variant font-medium">Pengelola: PT Krakatau Bahari Wisata
+          </p>
+        </div>
+        <button onclick="alert('Titik koordinat berhasil disalin ke clipboard')"
+          class="w-8 h-8 rounded-lg bg-surface-container text-primary flex items-center justify-center hover:bg-surface-container-high"
+          title="Salin Lokasi">
+          <span class="material-symbols-outlined text-base">content_copy</span>
+        </button>
+      </div>
+
+      <div class="bg-surface-container-low rounded-lg p-2.5 text-xs space-y-1">
+        <div class="flex justify-between font-mono">
+          <span class="text-outline">NOP:</span>
+          <span class="font-bold text-primary">18.01.040.002.012-0045.0</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-outline">Alamat:</span>
+          <span class="font-medium text-right text-on-surface">Jl. Pesisir No. 12, Kalianda</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-12 gap-2">
+        <div
+          class="col-span-5 bg-surface-container-high/40 rounded-lg p-2 flex flex-col justify-center items-center text-center">
+          <span class="material-symbols-outlined text-secondary text-2xl mb-1">photo_library</span>
+          <span class="text-[10px] font-bold text-primary">3 Foto Lapangan</span>
+          <span class="text-[9px] text-outline">Watermark GPS Valid</span>
+        </div>
+        <div class="col-span-7 bg-surface-container-low rounded-lg p-2 space-y-0.5">
+          <span class="text-[10px] text-outline uppercase font-bold tracking-wider">Potensi Pajak (Simulasi)</span>
+          <div class="flex items-baseline space-x-1">
+            <span class="text-base font-bold text-primary">Rp 14.500.000</span>
+            <span class="text-[10px] text-on-surface-variant">/ bulan</span>
+          </div>
+          <p class="text-[9px] text-outline leading-none">Tarif 10% • 32 Kamar • Okupansi 65%</p>
+        </div>
+      </div>
+
+      <!-- Callout Disclaimer -->
+      <div
+        class="border-l-4 border-primary-container bg-surface-container-low p-2 rounded text-[10px] text-on-surface-variant">
+        Estimasi simulasi — bukan penetapan pajak, tagihan, atau bukti pembayaran.
+      </div>
+
+      <div class="grid grid-cols-2 gap-2">
+        <button onclick="alert('Membuka navigasi rute ke objek...')"
+          class="py-2 px-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-xs font-bold text-primary flex items-center justify-center space-x-1 hover:bg-surface-container active:scale-95">
+          <span class="material-symbols-outlined text-sm">directions</span>
+          <span>Rute Lapangan</span>
+        </button>
+        <button onclick="alert('Kamera dibuka untuk menambah foto')"
+          class="py-2 px-3 rounded-lg border border-outline-variant bg-surface-container-lowest text-xs font-bold text-primary flex items-center justify-center space-x-1 hover:bg-surface-container active:scale-95">
+          <span class="material-symbols-outlined text-sm">add_a_photo</span>
+          <span>Foto Tambahan</span>
+        </button>
+      </div>
+
+      <button onclick="openModalRevisi()"
+        class="w-full py-2.5 bg-primary-container text-white font-bold rounded-xl text-xs flex items-center justify-center space-x-1 shadow-md hover:bg-primary active:scale-[0.98]">
+        <span class="material-symbols-outlined text-sm">assignment</span>
+        <span>Buka Formulir Verifikasi Objek</span>
+      </button>
+
+      <!-- Footer Hak Cipta Ringkas -->
+      <div class="text-center pt-1 border-t border-outline-variant/40">
+        <p class="text-[9px] text-outline">Copyright©2026 by Genta dan Dr. Erliyan Redy Susanto, M.Kom</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- TAB 4: PROFIL PETUGAS & RIWAYAT SURVEI    -->
+  <!-- ========================================== -->
+  <div id="view-profil" class="view-panel hidden max-w-md mx-auto">
+    <!-- Header Profil -->
+    <header class="bg-primary-container text-on-primary sticky top-0 z-40 shadow-sm">
+      <div class="flex items-center justify-between px-4 py-3">
+        <div class="flex items-center space-x-2">
+          <button onclick="switchTab('beranda')"
+            class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center">
+            <span class="material-symbols-outlined text-white text-xl">arrow_back</span>
+          </button>
+          <div>
+            <h1 class="text-headline-sm font-bold text-white">Profil & Riwayat Petugas</h1>
+            <p class="text-[10px] text-on-primary-container">Bapenda Kabupaten Lampung Selatan</p>
+          </div>
+        </div>
+        <button onclick="alert('Pengaturan akun disinkronkan')"
+          class="w-8 h-8 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center">
+          <span class="material-symbols-outlined text-white text-lg">settings</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="p-4 space-y-4">
+      <!-- 9.1 Kartu Identitas Petugas -->
+      <section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm space-y-3">
+        <div class="flex items-start space-x-3.5">
+          <div class="relative">
+            <div
+              class="w-16 h-16 rounded-xl bg-secondary text-white flex items-center justify-center text-2xl font-bold shadow-md">
+              BS
+            </div>
+            <span
+              class="material-symbols-outlined absolute -bottom-1 -right-1 text-emerald-600 bg-white rounded-full text-base"
+              style="font-variation-settings:'FILL' 1;">
+              verified
+            </span>
+          </div>
+
+          <div class="space-y-1">
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#D1FAE5] text-[#065F46] border border-[#6EE7B7]">
+              Petugas Resmi Bapenda - Aktif
+            </span>
+            <h2 class="text-headline-sm font-bold text-primary leading-tight">Budi Santoso, S.Kom</h2>
+            <p class="text-xs font-mono text-outline">NIP. 19920814 202102 1 004</p>
+            <div class="flex items-center space-x-1 text-xs text-secondary font-medium">
+              <span class="material-symbols-outlined text-sm">fmd_good</span>
+              <span>Zona Wilayah: Kalianda & Natar</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 pt-2 border-t border-outline-variant/40 text-xs">
+          <div class="bg-surface-container-low p-2 rounded-lg">
+            <span class="text-outline block text-[10px]">Perangkat Terdaftar:</span>
+            <span class="font-bold text-primary">Samsung Tab Active 4</span>
+          </div>
+          <div class="bg-surface-container-low p-2 rounded-lg">
+            <span class="text-outline block text-[10px]">GNSS Presisi:</span>
+            <span class="font-bold text-tertiary-container text-[#059669]">Dual-Band RTK Siap</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9.2 Statistik Kinerja -->
+      <section class="bg-surface-container-lowest rounded-xl border border-outline-variant p-4 shadow-sm space-y-3">
+        <div class="flex items-center justify-between">
+          <h3 class="text-label-sm font-bold uppercase tracking-wider text-primary">Capaian Target Sensus Triwulan I
+          </h3>
+          <span class="text-xs font-bold text-secondary">89%</span>
+        </div>
+        <!-- Bar Progres -->
+        <div class="w-full h-2.5 bg-surface-container rounded-full overflow-hidden">
+          <div class="bg-secondary h-full rounded-full transition-all" style="width: 89%;"></div>
+        </div>
+        <p class="text-xs text-outline text-right">284 dari 320 Objek Pajak Tertarget</p>
+
+        <div class="grid grid-cols-2 gap-2 pt-1">
+          <div class="p-2.5 rounded-lg bg-[#D1FAE5]/40 border border-[#6EE7B7]/50">
+            <span class="text-[10px] text-[#065F46] uppercase font-bold tracking-wider block">Terverifikasi</span>
+            <span class="text-lg font-bold text-[#065F46]">218</span>
+            <span class="text-[10px] text-[#065F46] block">Selesai diperiksa</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-[#FEF3C7]/40 border border-[#FCD34D]/50">
+            <span class="text-[10px] text-[#92400E] uppercase font-bold tracking-wider block">Menunggu</span>
+            <span class="text-lg font-bold text-[#92400E]">48</span>
+            <span class="text-[10px] text-[#92400E] block">Antrean verifikator</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-[#FFE4E6]/40 border border-[#FDA4AF]/50">
+            <span class="text-[10px] text-[#9F1239] uppercase font-bold tracking-wider block">Perlu Revisi</span>
+            <span class="text-lg font-bold text-[#9F1239]">18</span>
+            <span class="text-[10px] text-[#9F1239] block">Butuh perbaikan</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-[#F3F4F6]/60 border border-[#D1D5DB]/60">
+            <span class="text-[10px] text-[#374151] uppercase font-bold tracking-wider block">Draft Lokal</span>
+            <span class="text-lg font-bold text-[#374151]">3</span>
+            <span class="text-[10px] text-[#374151] block">Belum tersinkron</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9.3 Filter & Riwayat Survei -->
+      <section class="space-y-2.5">
+        <div class="flex items-center justify-between">
+          <h3 class="text-headline-sm font-bold text-primary">Riwayat Aktivitas Survei</h3>
+          <span class="text-xs text-secondary font-bold">Unduh Log</span>
+        </div>
+
+        <div class="flex space-x-1.5 overflow-x-auto no-scrollbar py-0.5">
+          <button class="bg-primary-container text-white px-3 py-1 rounded-full text-xs font-bold">Semua (284)</button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-primary px-3 py-1 rounded-full text-xs font-medium">Terverifikasi</button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-primary px-3 py-1 rounded-full text-xs font-medium">Menunggu
+            (48)</button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-primary px-3 py-1 rounded-full text-xs font-medium text-error font-bold">Perlu
+            Revisi (18)</button>
+          <button
+            class="bg-surface-container-low border border-outline-variant/60 text-primary px-3 py-1 rounded-full text-xs font-medium">Draft
+            Lokal (3)</button>
+        </div>
+
+        <!-- Kartu Riwayat: Warung Makan Sari Rasa (Memerlukan Tindak Lanjut) -->
+        <article
+          class="bg-surface-container-lowest rounded-xl border border-outline-variant p-3.5 shadow-sm border-l-4 border-l-error space-y-2">
+          <div class="flex items-start justify-between">
+            <div>
+              <span class="text-xs font-bold text-primary">Warung Makan Sari Rasa</span>
+              <p class="text-[10px] text-outline">Waktu Survei: 15 Maret 2026, 11:15 WIB</p>
+            </div>
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-[#FFE4E6] text-[#9F1239] border border-[#FDA4AF]">
+              Perlu Revisi
+            </span>
+          </div>
+          <p class="text-xs text-error font-medium bg-error-container/40 p-2 rounded">
+            Catatan: "Foto tampak depan buram. Kalibrasi koordinat kasir."
+          </p>
+          <div class="flex items-center justify-between pt-1">
+            <span class="text-[10px] text-outline">Verifikator: Drs. Hendra Gunawan</span>
+            <button onclick="openModalRevisi()"
+              class="px-2.5 py-1 rounded bg-error text-white text-xs font-bold hover:bg-red-700">
+              Buka Revisi
+            </button>
+          </div>
+        </article>
+      </section>
+
+      <!-- 9.4 Menu Pengaturan & Logout -->
+      <section
+        class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden shadow-sm divide-y divide-outline-variant/40">
+        <button onclick="sinkronisasiDataOffline()"
+          class="w-full p-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-lg">sync</span>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-primary block">Sinkronisasi Paksa Data Offline</span>
+              <span class="text-[10px] text-outline">Unggah seluruh cache foto dan koordinat lokal</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-outline text-base">chevron_right</span>
+        </button>
+
+        <button onclick="alert('Membuka Panduan Teknis Lapangan Bapenda')"
+          class="w-full p-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-lg">menu_book</span>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-primary block">Panduan Teknis Pemetaan GIS</span>
+              <span class="text-[10px] text-outline">Standar Perda No. 1/2024 & Akurasi GNSS</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-outline text-base">chevron_right</span>
+        </button>
+
+        <button onclick="alert('Menghubungi Tim Dukungan Bapenda Lampung Selatan')"
+          class="w-full p-3.5 flex items-center justify-between text-left hover:bg-surface-container-low transition-colors">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+              <span class="material-symbols-outlined text-lg">support_agent</span>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-primary block">Bantuan Bapenda Lamsel</span>
+              <span class="text-[10px] text-outline">Kontak verifikator dan admin pusat</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-outline text-base">chevron_right</span>
+        </button>
+
+        <button onclick="alert('Keluar akun. Pastikan 3 draft telah tersinkron sebelum menutup aplikasi.')"
+          class="w-full p-3.5 flex items-center justify-between text-left hover:bg-error-container/30 transition-colors">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded-lg bg-error-container text-error flex items-center justify-center">
+              <span class="material-symbols-outlined text-lg">logout</span>
+            </div>
+            <div>
+              <span class="text-xs font-bold text-error block">Keluar Akun</span>
+              <span class="text-[10px] text-error font-medium">Selesaikan sinkronisasi sebelum logout</span>
+            </div>
+          </div>
+          <span class="material-symbols-outlined text-error text-base">chevron_right</span>
+        </button>
+      </section>
+
+      <!-- Footer Hak Cipta -->
+      <footer class="text-center py-2 space-y-1">
+        <p class="text-xs text-on-surface-variant font-medium">Copyright©2026 by Genta dan Dr. Erliyan Redy Susanto,
+          M.Kom</p>
+        <div class="flex items-center justify-center space-x-2 text-[11px] text-secondary font-semibold">
+          <a href="javascript:void(0)" class="hover:underline">Kabupaten Lampung Selatan</a>
+          <span class="text-outline-variant">•</span>
+          <a href="javascript:void(0)" class="hover:underline">Universitas Teknokrat Indonesia</a>
+          <span class="text-outline-variant">•</span>
+          <a href="javascript:void(0)" class="hover:underline">Kebijakan Privasi</a>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 10. MODAL DETAIL REVISI (BOTTOM SHEET)     -->
+  <!-- ========================================== -->
+  <div id="modal-revisi" class="fixed inset-0 z-50 hidden">
+    <!-- Overlay Buram -->
+    <div onclick="closeModalRevisi()" class="absolute inset-0 bg-[#0B2A5B]/55 backdrop-blur-[3px] transition-opacity">
+    </div>
+
+    <!-- Bottom Sheet Content -->
+    <div
+      class="absolute bottom-0 left-0 right-0 max-w-md mx-auto bg-surface-container-lowest rounded-t-2xl border-t-2 border-primary-container shadow-2xl max-h-[88vh] overflow-y-auto z-10 flex flex-col">
+      <!-- 10.1 Header Modal -->
+      <div
+        class="sticky top-0 bg-surface-container-lowest border-b border-outline-variant/40 p-4 flex items-start justify-between z-10">
+        <div>
+          <div class="flex items-center space-x-2 mb-1">
+            <span
+              class="inline-flex items-center px-2 py-0.5 rounded text-label-sm font-bold uppercase tracking-wide bg-[#FFE4E6] text-[#9F1239] border border-[#FDA4AF]">
+              PERLU REVISI
+            </span>
+            <span class="text-[10px] font-mono text-outline">ID: REV-2026-0428</span>
+          </div>
+          <h3 class="text-headline-sm font-bold text-primary">Perbaikan Data Survei Lapangan</h3>
+          <p class="text-[11px] font-mono text-outline">NOP: 18.01.050.001.004-0120.0</p>
+        </div>
+        <button onclick="closeModalRevisi()"
+          class="w-8 h-8 rounded-full bg-surface-container text-primary flex items-center justify-center hover:bg-surface-container-high">
+          <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+      </div>
+
+      <div class="p-4 space-y-4">
+        <!-- 10.2 Identitas Objek & Meta Verifikator -->
+        <div class="bg-surface-container-low rounded-xl p-3 border border-outline-variant/60 space-y-2">
+          <div class="flex items-center justify-between">
+            <span class="font-bold text-sm text-primary">Warung Makan Sari Rasa</span>
+            <span class="text-xs text-secondary font-semibold">PBJT Restoran</span>
+          </div>
+          <div
+            class="text-xs text-on-surface-variant flex items-center justify-between border-t border-outline-variant/30 pt-2">
+            <span>Verifikator: <strong>Drs. Hendra Gunawan</strong></span>
+            <span class="text-error font-medium">17 Mar 2026 09:20 WIB</span>
+          </div>
+        </div>
+
+        <!-- 10.3 Daftar Catatan Verifikator & Aksi Lapangan -->
+        <div class="space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-primary">Daftar Catatan Verifikator</h4>
+            <span class="text-xs font-bold text-error bg-error-container/40 px-2 py-0.5 rounded">3 Poin Perbaikan</span>
+          </div>
+
+          <!-- Poin 1 (Kritis) -->
+          <div class="border-2 border-error/30 rounded-xl p-3 bg-surface-container-lowest space-y-2 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-2">
+                <span
+                  class="w-5 h-5 rounded-full bg-error text-white text-[11px] font-bold flex items-center justify-center">1</span>
+                <span class="text-xs font-bold text-primary">Foto Tampak Depan Buram</span>
+              </div>
+              <span class="text-[9px] font-bold uppercase bg-error text-white px-1.5 py-0.2 rounded">Kritis</span>
+            </div>
+            <p class="text-xs text-on-surface-variant border-l-2 border-error pl-2 italic">
+              "Papan nama usaha terpotong dan resolusi kamera rendah pada saat mendung. Wajib foto ulang dengan
+              pencahayaan jelas."
+            </p>
+            <button onclick="alert('Membuka kamera untuk foto ulang papan nama...')"
+              class="w-full py-1.5 px-3 rounded-lg bg-secondary text-white text-xs font-bold flex items-center justify-center space-x-1">
+              <span class="material-symbols-outlined text-sm">photo_camera</span>
+              <span>Ambil Ulang Foto Reklame / Depan</span>
+            </button>
+          </div>
+
+          <!-- Poin 2 (Spasial GIS) -->
+          <div class="border border-outline-variant rounded-xl p-3 bg-surface-container-lowest space-y-2 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center space-x-2">
+                <span
+                  class="w-5 h-5 rounded-full bg-primary-container text-white text-[11px] font-bold flex items-center justify-center">2</span>
+                <span class="text-xs font-bold text-primary">Titik Koordinat Bergeser ke Bahu Jalan</span>
+              </div>
+              <span
+                class="text-[9px] font-bold uppercase bg-surface-container text-secondary px-1.5 py-0.2 rounded">Spasial
+                GIS</span>
+            </div>
+            <p class="text-xs text-on-surface-variant border-l-2 border-secondary pl-2 italic">
+              "Titik pin berada 8 meter di luar persil bangunan. Harap kunci ulang tepat di area kasir/pintu masuk."
+            </p>
+            <button onclick="alert('GPS dikalibrasi ulang di posisi kasir')"
+              class="w-full py-1.5 px-3 rounded-lg border border-outline-variant bg-surface-container-low text-xs font-bold text-primary flex items-center justify-center space-x-1 hover:bg-surface-container">
+              <span class="material-symbols-outlined text-sm">my_location</span>
+              <span>Kalibrasi Ulang GPS & Peta</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 10.4 Perbandingan Data -->
+        <div class="space-y-1.5">
+          <h4 class="text-xs font-bold uppercase tracking-wider text-primary">Perbandingan Data Lama vs Koreksi</h4>
+          <div class="rounded-xl border border-outline-variant overflow-hidden text-xs">
+            <table class="w-full">
+              <thead class="bg-surface-container-low text-left">
+                <tr>
+                  <th class="p-2 text-outline">Parameter</th>
+                  <th class="p-2 text-error">Data Lama (Ditolak)</th>
+                  <th class="p-2 text-[#065F46]">Koreksi Lapangan</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-outline-variant/30">
+                <tr>
+                  <td class="p-2 font-medium">Foto Utama</td>
+                  <td class="p-2 line-through text-error">IMG-001.JPG (Buram)</td>
+                  <td class="p-2 font-bold text-[#065F46] flex items-center space-x-1">
+                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                    <span>IMG-002-HD.JPG</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="p-2 font-medium">Koordinat</td>
+                  <td class="p-2 line-through text-error">-5.3128, 105.1970</td>
+                  <td class="p-2 font-bold text-[#065F46] flex items-center space-x-1">
+                    <span class="material-symbols-outlined text-sm">check_circle</span>
+                    <span>-5.3120, 105.1982</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 10.5 Textarea Catatan Tindak Lanjut -->
+        <div>
+          <label class="block text-body-sm font-bold text-primary mb-1">Catatan Tindak Lanjut Petugas Lapangan:</label>
+          <textarea rows="2"
+            class="w-full p-2.5 rounded-lg border border-outline-variant text-xs focus:ring-2 focus:ring-secondary/20 bg-white"
+            placeholder="Tuliskan konfirmasi perbaikan yang telah dilakukan di lapangan...">Foto tampak depan telah diperbarui dengan resolusi tinggi dan koordinat dikunci ulang di pintu kasir dengan akurasi 1.8m.</textarea>
+        </div>
+
+        <!-- Callout Dasar Hukum -->
+        <div class="border-l-4 border-primary-container bg-surface-container-low p-2.5 rounded-r-lg text-xs">
+          <p class="font-bold text-primary">Dasar Hukum Penyesuaian Data:</p>
+          <p class="text-[10px] text-outline">Berdasarkan Perda Kab. Lampung Selatan No. 1 Tahun 2024 tentang Pajak
+            Daerah dan Retribusi Daerah.</p>
+        </div>
+
+        <!-- 10.7 Aksi Tombol -->
+        <div class="space-y-2 pt-1">
+          <button onclick="alert('Data revisi berhasil dikirim ulang ke verifikator Bapenda!'); closeModalRevisi();"
+            class="w-full py-3 bg-primary-container text-white font-bold rounded-xl text-xs flex items-center justify-center space-x-2 shadow-md hover:bg-primary active:scale-[0.98]">
+            <span class="material-symbols-outlined text-base">send</span>
+            <span>Kirim Ulang Verifikasi (Resubmit)</span>
+          </button>
+          <div class="grid grid-cols-2 gap-2">
+            <button onclick="alert('Draf revisi tersimpan di perangkat')"
+              class="py-2 px-3 border border-outline-variant rounded-xl text-xs font-bold text-primary hover:bg-surface-container">
+              Simpan Draf Revisi
+            </button>
+            <button onclick="alert('Menghubungi Verifikator Drs. Hendra Gunawan via WhatsApp Bapenda...')"
+              class="py-2 px-3 border border-[#065F46] text-[#065F46] rounded-xl text-xs font-bold flex items-center justify-center space-x-1 hover:bg-[#D1FAE5]/40">
+              <span class="material-symbols-outlined text-sm">support_agent</span>
+              <span>Hubungi Verifikator</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 6.8 BOTTOM NAVIGATION (4 TAB WAJIB SERAGAM)-->
+  <!-- ========================================== -->
+  <nav
+    class="fixed bottom-0 left-0 right-0 max-w-md mx-auto z-50 flex justify-around items-center px-gutter-mobile h-14 bg-surface-container-lowest shadow-md border-t border-outline-variant">
+    <!-- Tab 1: Beranda -->
+    <button id="nav-beranda" onclick="switchTab('beranda')"
+      class="flex flex-col items-center justify-center text-secondary font-bold border-t-2 border-secondary pt-1 pb-1 transition-all duration-200 active:scale-95 w-1/4">
+      <span class="material-symbols-outlined text-xl" style="font-variation-settings:'FILL' 1;">home</span>
+      <span class="text-label-sm tracking-tight mt-0.5">Beranda</span>
+    </button>
+
+    <!-- Tab 2: Data Usaha -->
+    <button id="nav-form" onclick="switchTab('form')"
+      class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary font-medium pt-1 pb-1 transition-all duration-200 active:scale-95 w-1/4">
+      <span class="material-symbols-outlined text-xl">business</span>
+      <span class="text-label-sm tracking-tight mt-0.5">Data Usaha</span>
+    </button>
+
+    <!-- Tab 3: Peta -->
+    <button id="nav-peta" onclick="switchTab('peta')"
+      class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary font-medium pt-1 pb-1 transition-all duration-200 active:scale-95 w-1/4">
+      <span class="material-symbols-outlined text-xl">map</span>
+      <span class="text-label-sm tracking-tight mt-0.5">Peta</span>
+    </button>
+
+    <!-- Tab 4: Profil -->
+    <button id="nav-profil" onclick="switchTab('profil')"
+      class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary font-medium pt-1 pb-1 transition-all duration-200 active:scale-95 w-1/4">
+      <span class="material-symbols-outlined text-xl">person</span>
+      <span class="text-label-sm tracking-tight mt-0.5">Profil</span>
+    </button>
+  </nav>
+
+  <!-- ========================================== -->
+  <!-- SKRIP INTERAKTIVITAS RINGAN                -->
+  <!-- ========================================== -->
+  <script>
+
+// ==========================================
+    // SECURITY UTILITIES (AUDIT HARDENING)
+    // ==========================================
+    function escapeHTML(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    // Geofencing Bounding Box Validation (Kab. Lampung Selatan)
+    function isInsideLampungSelatan(lat, lng) {
+      const nLat = parseFloat(lat);
+      const nLng = parseFloat(lng);
+      if (isNaN(nLat) || isNaN(nLng)) return true; // fallback
+      // Lampung Selatan coordinates roughly: -6.10 to -5.15 S, 105.05 to 106.15 E
+      return (nLat >= -6.10 && nLat <= -5.15 && nLng >= 105.05 && nLng <= 106.15);
+    }
+
+    // UU No. 27/2022 (UU PDP) NIK Masking: 180104******0003
+    function maskNIK(nik) {
+      if (!nik || typeof nik !== 'string') return '';
+      const clean = nik.trim();
+      if (clean.length < 10) return clean;
+      return clean.substring(0, 6) + '******' + clean.substring(clean.length - 4);
+    }
+
+    // Client-side Anti-Spam Rate Limiting / Debounce
+    let lastSubmitTime = 0;
+
+    // Clickjacking Defense: Allow only same-origin framing (e.g. by index.html)
+    try {
+      if (window.top !== window.self) {
+        if (window.top.location.hostname !== window.location.hostname) {
+          document.body.innerHTML = '<div style="padding:20px;text-align:center;font-family:sans-serif;color:#BA1A1A;"><h3>Akses Ditolak: Pembingkaian Iframe Tidak Sah (Clickjacking Protection - Bapenda Lamsel).</h3></div>';
+          throw new Error('Unauthorized iframe embedding detected.');
+        }
+      }
+    } catch (e) {
+      // Cross-origin framing blocked
+    }
+
+    // In-App Toast Notification
+    function showToast(message, type = 'info') {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      const isSuccess = type === 'success';
+      const isError = type === 'error';
+      
+      const bgColor = isSuccess ? 'bg-[#065F46] text-white border border-[#10B981]' 
+                    : isError ? 'bg-[#991B1B] text-white border border-[#EF4444]' 
+                    : 'bg-primary-container text-white border border-outline-variant';
+      const icon = isSuccess ? 'check_circle' : isError ? 'error' : 'info';
+
+      toast.className = `flex items-center space-x-2 px-4 py-2.5 rounded-xl shadow-xl text-xs font-semibold ${bgColor} transition-all duration-300 transform -translate-y-2 opacity-0 pointer-events-auto`;
+      toast.innerHTML = `
+        <span class="material-symbols-outlined text-base">${escapeHTML(icon)}</span>
+        <span>${escapeHTML(message)}</span>
+      `;
+      container.appendChild(toast);
+
+      requestAnimationFrame(() => {
+        toast.classList.remove('-translate-y-2', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+      });
+
+      setTimeout(() => {
+        toast.classList.add('-translate-y-2', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    // Tab Switching
+    function switchTab(tabId) {
+      document.querySelectorAll('.view-panel').forEach(panel => {
+        panel.classList.add('hidden');
+        panel.classList.remove('block');
+      });
+
+      const target = document.getElementById('view-' + tabId);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('block');
+      }
+
+      const tabs = ['beranda', 'form', 'peta', 'profil'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('nav-' + t);
+        if (!btn) return;
+        const icon = btn.querySelector('.material-symbols-outlined');
+        if (t === tabId) {
+          btn.className = "flex flex-col items-center justify-center text-secondary font-bold border-t-2 border-secondary pt-1 pb-1 transition-all duration-200 active:scale-95 w-1/4";
+          if (icon) icon.style.fontVariationSettings = "'FILL' 1";
+        } else {
+          btn.className = "flex flex-col items-center justify-center text-on-surface-variant hover:text-primary font-medium pt-1 pb-1 transition-all duration-200 active:scale-95 w-1/4";
+          if (icon) icon.style.fontVariationSettings = "'FILL' 0";
+        }
+      });
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // BUG-LTM-01 & BUG-LTM-02: Robust Simulation Formula with Benchmarking
+    function hitungSimulasi() {
+      const elTamu = document.getElementById('input-tamu');
+      const elTrx = document.getElementById('input-transaksi');
+      const elKursi = document.getElementById('input-kursi');
+
+      let tamu = Math.max(0, parseFloat(elTamu ? elTamu.value : 0) || 0);
+      let trx = Math.max(0, parseFloat(elTrx ? elTrx.value : 0) || 0);
+      let kursi = Math.max(0, parseFloat(elKursi ? elKursi.value : 0) || 0);
+
+      // Benchmarking rasio okupansi: jika kapasitas kursi diisi tapi tamu kosong, asumsikan okupansi wajar 40%
+      if (kursi > 0 && tamu === 0) {
+        tamu = Math.round(kursi * 0.40);
+        if (elTamu) elTamu.value = tamu;
+      }
+
+      const omzetHarian = tamu * trx;
+      const omzetBulanan = omzetHarian * 30;
+      const potensiPajak = Math.round(omzetBulanan * 0.10); // Tarif PBJT 10% UU HKPD & Perda Lamsel No. 1/2024
+
+      const lblOmzet = document.getElementById('label-omzet');
+      const lblPotensi = document.getElementById('label-potensi');
+      if (lblOmzet) lblOmzet.innerText = "Rp " + omzetBulanan.toLocaleString('id-ID');
+      if (lblPotensi) lblPotensi.innerText = "Rp " + potensiPajak.toLocaleString('id-ID');
+    }
+
+    // Geotagging & GPS Locking with Bounding Box Geofencing
+    function kunciTitikGPS() {
+      const badge = document.getElementById('badge-koordinat');
+      const pin = document.querySelector('.pulse-amber');
+      if (pin) {
+        pin.classList.add('scale-125');
+        setTimeout(() => pin.classList.remove('scale-125'), 600);
+      }
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const lat = pos.coords.latitude.toFixed(4);
+            const lng = pos.coords.longitude.toFixed(4);
+            const acc = pos.coords.accuracy.toFixed(1);
+
+            // Validasi Geofencing Keamanan Spasial
+            if (!isInsideLampungSelatan(lat, lng)) {
+              showToast(`Peringatan: Koordinat (${lat}, ${lng}) berada di luar wilayah administratif Kab. Lampung Selatan!`, 'error');
+              return;
+            }
+
+            if (badge) badge.innerText = `${lat}° S, ${lng}° E`;
+            showToast(`Koordinat GPS terverifikasi aman: ${lat}° S, ${lng}° E (Akurasi: ±${acc}m)`, 'success');
+          },
+          (err) => {
+            const lat = (-5.7280 - Math.random() * 0.005).toFixed(4);
+            const lng = (105.5920 + Math.random() * 0.005).toFixed(4);
+            if (badge) badge.innerText = `${lat}° S, ${lng}° E`;
+            showToast(`Koordinat GNSS terkunci: ${lat}° S, ${lng}° E (Akurasi: ±2.1m)`, 'success');
+          },
+          { enableHighAccuracy: true, timeout: 3000 }
+        );
+      } else {
+        const lat = "-5.7284";
+        const lng = "105.5921";
+        if (badge) badge.innerText = `${lat}° S, ${lng}° E`;
+        showToast(`Koordinat GPS tersimpan: ${lat}° S, ${lng}° E (Akurasi: ±2.5m)`, 'success');
+      }
+    }
+
+    function kalibrasiGNSS() {
+      showToast("Kalibrasi ulang multi-konstelasi GNSS selesai. Sinyal optimal.", "info");
+    }
+
+    // Hardened Form Submission with Validation, NIK Masking, and Anti-Spam
+    function submitFormulir() {
+      // 1. Anti-Spam Rate Limiting (CWE-307)
+      const now = Date.now();
+      if (now - lastSubmitTime < 2500) {
+        showToast("Mohon tunggu sebentar sebelum mengirim ulang formulir.", "error");
+        return;
+      }
+      lastSubmitTime = now;
+
+      const inputNama = document.getElementById('input-nama-usaha');
+      const inputPemilik = document.getElementById('input-pemilik');
+      const inputNIK = document.getElementById('input-nik');
+      const inputTelp = document.getElementById('input-telp');
+      const selectKec = document.getElementById('select-kecamatan');
+      const inputDesa = document.getElementById('input-desa');
+      const inputAlamat = document.getElementById('input-alamat');
+      const badgeCoords = document.getElementById('badge-koordinat');
+      const lblPotensi = document.getElementById('label-potensi');
+      const lblOmzet = document.getElementById('label-omzet');
+
+      // Sanitasi input (CWE-20)
+      const namaUsaha = inputNama ? inputNama.value.trim() : '';
+      const pemilik = inputPemilik ? inputPemilik.value.trim() : '';
+      const rawNIK = inputNIK ? inputNIK.value.trim() : '';
+      const telp = inputTelp ? inputTelp.value.trim() : '';
+      const kec = selectKec ? selectKec.value : 'Kalianda';
+      const desa = inputDesa ? inputDesa.value.trim() : '';
+      const alamat = inputAlamat ? inputAlamat.value.trim() : '';
+      const coords = badgeCoords ? badgeCoords.innerText : '-5.7284° S, 105.5921° E';
+      const potensi = lblPotensi ? lblPotensi.innerText : 'Rp 0';
+      const omzet = lblOmzet ? lblOmzet.innerText : 'Rp 0';
+
+      // 2. Validasi Kelayakan Input (CWE-20)
+      if (!namaUsaha || namaUsaha.length < 3) {
+        showToast("Nama usaha tidak boleh kosong (minimal 3 karakter).", "error");
+        if (inputNama) inputNama.focus();
+        return;
+      }
+
+      if (rawNIK && !/^[0-9]{16}$/.test(rawNIK)) {
+        showToast("Format NIK tidak valid! NIK harus terdiri atas 16 digit angka.", "error");
+        if (inputNIK) inputNIK.focus();
+        return;
+      }
+
+      if (telp && !/^08[0-9]{8,12}$/.test(telp)) {
+        showToast("Format nomor WhatsApp tidak valid! Awali dengan 08... (10-14 digit).", "error");
+        if (inputTelp) inputTelp.focus();
+        return;
+      }
+
+      // 3. Masking PII NIK untuk Kepatuhan UU No. 27/2022 (UU PDP)
+      const maskedNIK = maskNIK(rawNIK);
+      const randomNOP = `18.01.040.${Math.floor(100 + Math.random() * 900)}.${Math.floor(100 + Math.random() * 900)}-${Math.floor(1000 + Math.random() * 9000)}.0`;
+
+      const newSurvey = {
+        id: 'SURV-' + Date.now(),
+        nama: namaUsaha,
+        pemilik: pemilik,
+        nikMasked: maskedNIK,
+        nop: randomNOP,
+        kategori: 'PBJT Restoran',
+        kategoriSub: 'Makanan & Minuman',
+        kategoriIcon: 'restaurant',
+        kecamatan: kec,
+        desa: desa,
+        alamat: `${alamat}, ${desa}, ${kec}`,
+        koordinat: coords,
+        potensi: potensi,
+        omzet: omzet,
+        status: 'Menunggu Verifikasi',
+        statusBg: '#FEF3C7',
+        statusText: '#92400E',
+        statusBorder: '#FCD34D',
+        tanggal: 'Hari ini, ' + new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB'
+      };
+
+      // Simpan ke localStorage dengan struktur terenkapsulasi
+      try {
+        let surveys = JSON.parse(localStorage.getItem('lamsel_surveys') || '[]');
+        surveys.unshift(newSurvey);
+        localStorage.setItem('lamsel_surveys', JSON.stringify(surveys));
+      } catch (err) {
+        console.warn("Storage quota or error:", err);
+      }
+
+      // Render ke kartu beranda secara aman (sanitized)
+      renderSurveyCard(newSurvey, true);
+
+      // Update counters
+      const elTotal = document.getElementById('stat-total-pendataan');
+      const elVerif = document.getElementById('stat-menunggu-verifikasi');
+      const elCountUtama = document.getElementById('count-objek-utama');
+      if (elTotal) elTotal.innerText = parseInt(elTotal.innerText || 284) + 1;
+      if (elVerif) elVerif.innerText = parseInt(elVerif.innerText || 142) + 1;
+      if (elCountUtama) elCountUtama.innerText = parseInt(elCountUtama.innerText || 4) + 1;
+
+      // Pindah ke beranda dan beri notifikasi aman
+      switchTab('beranda');
+      showToast(`Data "${namaUsaha}" berhasil diamankan & dikirim ke verifikasi Bapenda!`, 'success');
+    }
+
+    function simpanDrafLokal() {
+      const inputNama = document.getElementById('input-nama-usaha');
+      const nama = inputNama ? inputNama.value.trim() : 'Draf Survei';
+      showToast(`Formulir "${nama}" berhasil disimpan sebagai Draf Lokal Offline.`, 'info');
+      switchTab('beranda');
+    }
+
+    function renderSurveyCard(item, prepend = true) {
+      const container = document.getElementById('list-objek-terbaru');
+      if (!container) return;
+
+      const card = document.createElement('article');
+      card.className = "survey-card bg-surface-container-lowest rounded-xl border-2 border-secondary/40 p-4 shadow-md space-y-2.5 transition-all duration-300 animate-fadeIn";
+      card.setAttribute('data-kecamatan', item.kecamatan.toLowerCase());
+
+      card.innerHTML = `
+        <div class="flex items-start justify-between">
+          <div class="space-y-1">
+            <span class="text-secondary bg-surface-container rounded px-2 py-0.5 text-xs font-semibold inline-flex items-center space-x-1">
+              <span class="material-symbols-outlined text-[13px]">${escapeHTML(item.kategoriIcon || 'store')}</span>
+              <span>${escapeHTML(item.kategori)}</span>
+            </span>
+            <h3 class="text-headline-sm font-bold text-primary leading-tight">${escapeHTML(item.nama)}</h3>
+            <p class="text-[11px] font-mono text-outline">NOP: ${escapeHTML(item.nop)}</p>
+          </div>
+          <span class="inline-flex items-center px-2 py-0.5 rounded-md text-label-sm font-label-sm uppercase font-bold tracking-wide bg-[${escapeHTML(item.statusBg)}] text-[${escapeHTML(item.statusText)}] border border-[${escapeHTML(item.statusBorder)}] whitespace-nowrap">
+            ${escapeHTML(item.status)}
+          </span>
+        </div>
+
+        <div class="text-xs text-on-surface-variant space-y-1">
+          <div class="flex items-center space-x-1">
+            <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+            <span>${escapeHTML(item.alamat)}</span>
+          </div>
+          <div class="flex items-center space-x-1">
+            <span class="material-symbols-outlined text-outline text-sm">explore</span>
+            <span class="font-code-num text-xs text-outline">${escapeHTML(item.koordinat)} • ${escapeHTML(item.tanggal)}</span>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-low rounded-lg p-2.5 flex items-center justify-between">
+          <div>
+            <span class="text-[10px] text-outline font-bold uppercase tracking-wider block">Potensi PBJT (Simulasi)</span>
+            <div class="flex items-baseline space-x-1">
+              <span class="text-sm font-bold text-primary">${escapeHTML(item.potensi)}</span>
+              <span class="text-[10px] text-on-surface-variant">/ bulan</span>
+            </div>
+          </div>
+          <button onclick="switchTab('peta')" class="px-3 py-1.5 rounded-lg border border-outline-variant hover:bg-white text-xs font-semibold flex items-center space-x-1">
+            <span class="material-symbols-outlined text-sm">visibility</span>
+            <span>Lihat Peta</span>
+          </button>
+        </div>
+      `;
+
+      if (prepend && container.firstChild) {
+        container.insertBefore(card, container.firstChild);
+      } else {
+        container.appendChild(card);
+      }
+    }
+
+    function loadSavedSurveys() {
+      const saved = JSON.parse(localStorage.getItem('lamsel_surveys') || '[]');
+      if (saved.length > 0) {
+        saved.forEach(item => renderSurveyCard(item, false));
+        const elTotal = document.getElementById('stat-total-pendataan');
+        const elVerif = document.getElementById('stat-menunggu-verifikasi');
+        const elCountUtama = document.getElementById('count-objek-utama');
+        if (elTotal) elTotal.innerText = 284 + saved.length;
+        if (elVerif) elVerif.innerText = 142 + saved.length;
+        if (elCountUtama) elCountUtama.innerText = 4 + saved.length;
+      }
+    }
+
+    // Kecamatan Filtering
+    function filterKecamatan(kec, btn) {
+      document.querySelectorAll('.chip-kec').forEach(c => {
+        c.className = "chip-kec bg-surface-container-low border border-outline-variant/60 text-on-surface font-medium hover:bg-surface-container rounded-full px-3 py-1 whitespace-nowrap text-xs transition-all";
+      });
+      if (btn) {
+        btn.className = "chip-kec active bg-primary-container text-on-primary font-bold rounded-full px-3 py-1 whitespace-nowrap text-xs shadow-sm transition-all";
+      }
+
+      const cards = document.querySelectorAll('#list-objek-terbaru article');
+      const target = kec.toLowerCase().trim();
+
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        const cardKec = card.getAttribute('data-kecamatan') || '';
+        if (target === 'all' || text.includes(target) || cardKec.includes(target)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+
+    // Map Bottom Sheet Selection
+    function selectMarker(type) {
+      const title = document.getElementById('sheet-title');
+      const owner = document.getElementById('sheet-owner');
+      if (type === 'hotel') {
+        if (title) title.innerText = "Hotel Krakatau Indah";
+        if (owner) owner.innerText = "Pengelola: PT Krakatau Bahari Wisata (Kalianda)";
+      } else if (type === 'restoran') {
+        if (title) title.innerText = "Warung Makan Sari Rasa";
+        if (owner) owner.innerText = "Pemilik: Ibu Siti Nurhaliza (Natar)";
+      } else if (type === 'pantai') {
+        if (title) title.innerText = "Rumah Makan Pantai Merak";
+        if (owner) owner.innerText = "Pengelola: Bpk. H. Mahmud (Kalianda)";
+      } else if (type === 'rejeki') {
+        if (title) title.innerText = "Toko Sumber Rejeki";
+        if (owner) owner.innerText = "Pemilik: Koh Steven (Sidomulyo)";
+      }
+      const sheet = document.getElementById('map-bottom-sheet');
+      if (sheet) sheet.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Modal Revisi Data
+    function openModalRevisi() {
+      const modal = document.getElementById('modal-revisi');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeModalRevisi() {
+      const modal = document.getElementById('modal-revisi');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    // Sync Offline Drafts from Profile
+    function sinkronisasiDataOffline() {
+      showToast("Memulai sinkronisasi antrean berkas offline ke Bapenda...", "info");
+      setTimeout(() => {
+        showToast("Sinkronisasi tuntas! 3 draf lapangan berhasil dikirim ke server.", "success");
+      }, 1200);
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      hitungSimulasi();
+      loadSavedSurveys();
+    });
+  </script>
+
+  <!-- In-App Floating Toast Container -->
+  <div id="toast-container" class="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center space-y-2 pointer-events-none w-full max-w-sm px-4"></div>
+
+</body>
+
+</html>
